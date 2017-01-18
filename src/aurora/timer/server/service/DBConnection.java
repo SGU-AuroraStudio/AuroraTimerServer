@@ -18,7 +18,7 @@ public class DBConnection {
     static final String USER = "root";
     static final String PASSWORD = "Zhouhao6371.";
     static final String URL = "jdbc:mysql://" + ADDRESS + ":" + HOST + "/" + DBNAME + "?" +
-            "user=" + USER + "&password=" + PASSWORD + "&characterEncoding=UTF8";
+            "user=" + USER + "&password=" + PASSWORD + "&characterEncoding=UTF8&useSSL=false";
 
     /**
      * 每次获取一个新的Connection实例
@@ -30,7 +30,7 @@ public class DBConnection {
         try {
             new Driver();
             conn = (Connection) DriverManager.getConnection(URL);
-            logger.info("成功连接到数据库");
+            logger.fine("成功连接到数据库");
         } catch (SQLException e) {
             logger.warning("连接数据库失败");
         }

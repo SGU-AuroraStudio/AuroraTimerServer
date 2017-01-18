@@ -10,6 +10,9 @@ import com.mysql.jdbc.Connection;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.logging.Logger;
 
 
@@ -71,10 +74,54 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
         return true;
     }
 
+    /**
+     * 查询这周所有在线过的用户的这周的总时间
+     * @return 返回所有这周数据的集合，统计交给个客户端
+     * @throws Exception
+     */
+    @Override
+    public Set<UserOnlineTime> thisWeekData() throws Exception {
+        return lastXWeekData(0);
+    }
+
+    /**
+     * 查询前第x周的在线用户数据
+     * @param x x为0是代表本周，1代表上周，以此类推
+     * @return 返回第前x周的数据的集合
+     * @throws Exception
+     */
+    @Override
+    public Set<UserOnlineTime> lastXWeekData(int x) throws Exception {
+        Set<UserOnlineTime> set = new HashSet<>();
+        Connection conn = DBConnection.getConnection();
+        IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
+        Date date = new Date(System.currentTimeMillis());
+        int dayOfWeek = date.toLocalDate().getDayOfWeek().getValue();
+        try {
+            for (int i = x*7; i < x*7+dayOfWeek; i++) {
+                set.addAll(iUserOnlineTimeDAO.findByData(Date.valueOf(date.toLocalDate().minusDays(i))));
+            }
+            logger.fine("完成查找");
+        } catch (Exception e) {
+            logger.warning("查找周数据失败");
+            e.printStackTrace();
+        }
+        return set;
+    }
+
     public static void main(String args[]) throws Exception{
         UserOnlineTimeServiceImpl userOnlineTimeService = new UserOnlineTimeServiceImpl();
+        Set<UserOnlineTime> set;
+        UserOnlineTimeServiceImpl uotsi = new UserOnlineTimeServiceImpl();
+        UserOnlineTime userOnlineTime = null;
         try{
-            userOnlineTimeService.addTime("15115072043");
+            set = uotsi.thisWeekData();
+            Iterator iterator = set.iterator();
+            while (iterator.hasNext()) {
+                userOnlineTime = (UserOnlineTime) iterator.next();
+                System.out.println(userOnlineTime.getID()+","+userOnlineTime.getLastOnlineTime());
+            }
+//            userOnlineTimeService.addTime("15115072043");
             System.err.println("成功了！！！");
         } catch (Exception e) {
             Logger.getLogger("hehe").warning("失败了");

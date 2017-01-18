@@ -9,6 +9,8 @@ import aurora.timer.server.vo.*;
 import com.mysql.jdbc.Connection;
 
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import static aurora.timer.server.service.DBConnection.getConnection;
@@ -30,13 +32,13 @@ public class UserDataServiceImpl implements IUserDataService {
         Connection conn = DBConnection.getConnection();
         IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
         try {
-            iUserDataDAO.doCreate(vo);
-            logger.info("创建用户成功");
-            flag = true;
+            flag = iUserDataDAO.doCreate(vo);
+            logger.fine("创建用户成功");
         } catch (SQLException e){
             logger.warning("创建用户失败");
             //e.printStackTrace();
         }
+        conn.close();
         return flag;
     }
 
@@ -48,7 +50,17 @@ public class UserDataServiceImpl implements IUserDataService {
      */
     @Override
     public boolean changeData(UserData vo) throws Exception {
-        return false;
+        boolean flag = false;
+        Connection conn = DBConnection.getConnection();
+        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
+        try {
+            flag = iUserDataDAO.doUpdate(vo);
+            logger.fine("修改用户资料成功");
+        } catch (Exception e) {
+            logger.warning("修改用户资料失败");
+        }
+        conn.close();
+        return flag;
     }
 
     /**
@@ -59,7 +71,23 @@ public class UserDataServiceImpl implements IUserDataService {
      */
     @Override
     public boolean logout(String id) throws Exception {
-        return false;
+        boolean flag = false;
+        Connection conn = DBConnection.getConnection();
+        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
+        UserData voUpdate = null;
+        try {
+            voUpdate = iUserDataDAO.findById(id);
+            if (voUpdate.getIsLeave() == true) {
+                logger.info("该用户已经是离开的");
+                return false;
+            }
+            voUpdate.setIsLeave(true);
+            flag = iUserDataDAO.doUpdate(voUpdate);
+            logger.fine("已设置用户离开状态");
+        } catch (Exception e) {
+            logger.warning("设置用户离开状态失败");
+        }
+        return flag;
     }
 
     /**
@@ -70,13 +98,22 @@ public class UserDataServiceImpl implements IUserDataService {
      */
     @Override
     public boolean deleteAccount(String id) throws Exception {
-        return false;
+        boolean flag = false;
+        Connection conn = DBConnection.getConnection();
+        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
+        Set<String> set = new HashSet<>();
+        set.add(id);
+        flag = iUserDataDAO.doRemoveBatch(set);
+        return flag;
     }
+
 //    测试
     public static void main(String args[]) throws Exception{
         UserData userData = new UserData("ARiKi","15115072042","8990890");
-        if (new UserDataServiceImpl().register(userData)){
+        if (new UserDataServiceImpl().deleteAccount("15115072042")){
             System.out.println("呵呵");
+        } else {
+            System.err.println("删除失败！");
         }
     }
 }

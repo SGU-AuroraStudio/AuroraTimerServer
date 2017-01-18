@@ -58,7 +58,7 @@ public class UserDataDAOImpl implements IUserDataDAO {
             return false;
         }
         StringBuffer sql = new StringBuffer();
-        sql.append("DELETE FROM UserDate WHERE id IN(");
+        sql.append("DELETE FROM UserData WHERE id IN(");
         Iterator<String> iter = ids.iterator();
         while (iter.hasNext()) {
             sql.append(iter.next()).append(",");

@@ -110,7 +110,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
     @Override
     public Set<UserOnlineTime> findById(String id) throws SQLException {
         UserOnlineTime vo = null;
-        String sql = "SELECT todaydate,lastonlinetime,todayonlinetime WHERE ID=?";
+        String sql = "SELECT todaydate,lastonlinetime,todayonlinetime FROM UserOnlineTime WHERE ID=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         ResultSet rs= pstmt.executeQuery();
@@ -135,7 +135,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
     @Override
     public  Set<UserOnlineTime> findByData(Date date) throws SQLException {
         UserOnlineTime vo = null;
-        String sql = "SELECT ID,lastonlinetime,todayonlinetime WHERE todaydate=?";
+        String sql = "SELECT ID,lastonlinetime,todayonlinetime FROM UserOnlineTime WHERE todaydate=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setDate(1, date);
         ResultSet rs= pstmt.executeQuery();
