@@ -3,6 +3,7 @@ package aurora.timer.server.dao.idao;
 import aurora.timer.server.vo.UserOnlineTime;
 
 import java.sql.Date;
+import java.util.Set;
 
 /**
  * Created by hao on 17-1-16.
@@ -55,15 +56,15 @@ public interface IUserOnlineTimeDAO{
      * @return 成功则返回true，否则返回false
      * @throws Exception
      */
-    public UserOnlineTime findById(String id) throws Exception;
+    public Set<UserOnlineTime> findById(String id) throws Exception;
 
     /**
      * 根据日期查找在线记录
      * @param date 需要查找的日期
-     * @return 成功则返回true，否则返回false
+     * @return 查找到的vo的集合
      * @throws Exception
      */
-    public UserOnlineTime findByData(Date date) throws Exception;
+    public Set<UserOnlineTime> findByData(Date date) throws Exception;
 
     /**
      * 根据用户和日期查找在线记录

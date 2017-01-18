@@ -27,29 +27,17 @@ public class UserDataServiceImpl implements IUserDataService {
     @Override
     public boolean register(UserData vo) throws Exception {
         boolean flag = false;
-        Connection conn = getConnection();
+        Connection conn = DBConnection.getConnection();
         IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
         try {
             iUserDataDAO.doCreate(vo);
             logger.info("创建用户成功");
             flag = true;
         } catch (SQLException e){
-            logger.warning("创建用户失败，检查一下数据库字符集，或者是否重复");
+            logger.warning("创建用户失败");
             //e.printStackTrace();
         }
         return flag;
-    }
-
-    /**
-     * 增加时间就靠这个了！每5分钟上传一次，如果距离最近在线时间小于10分钟的话则加时<br>
-     * <li>否则更新最近在线时间并加上5分钟</li>
-     * @param id 在线的用户的ID
-     * @return 加时成功返回true，失败返回false
-     * @throws Exception
-     */
-    @Override
-    public boolean addTime(String id) throws Exception {
-        return false;
     }
 
     /**
@@ -84,11 +72,11 @@ public class UserDataServiceImpl implements IUserDataService {
     public boolean deleteAccount(String id) throws Exception {
         return false;
     }
-////    测试
-//    public static void main(String args[]) throws Exception{
-//        UserData userData = new UserData("test43","15115072043","8990890");
-//        if (new UserDataServiceImpl().register(userData)){
-//            System.out.println("呵呵");
-//        }
-//    }
+//    测试
+    public static void main(String args[]) throws Exception{
+        UserData userData = new UserData("ARiKi","15115072042","8990890");
+        if (new UserDataServiceImpl().register(userData)){
+            System.out.println("呵呵");
+        }
+    }
 }
