@@ -1,6 +1,5 @@
 package aurora.timer.server.service.iservice;
 
-import aurora.timer.server.vo.UserData;
 import aurora.timer.server.vo.UserOnlineTime;
 
 import java.util.Set;

@@ -114,16 +114,26 @@ public class UserDataServiceImpl implements IUserDataService {
      * @throws Exception
      */
     @Override
-    public UserData seachUserById(String id) throws Exception {
-
-        return null;
+    public UserData searchUserById(String id) throws Exception {
+        UserData vo = null;
+        Connection conn = DBConnection.getConnection();
+        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
+        try {
+            vo = iUserDataDAO.findById(id);
+            logger.fine("查找成功");
+        } catch (Exception e) {
+            logger.warning("查找用户信息失败");
+            e.printStackTrace();
+        }
+        conn.close();
+        return vo;
     }
 
     //    测试
     public static void main(String args[]) throws Exception{
         UserData userData = new UserData("ARiKi","15115072042","8990890");
         if (new UserDataServiceImpl().deleteAccount("15115072042")){
-            System.out.println("呵呵");
+            System.out.println("omedeto!");
         } else {
             System.err.println("删除失败！");
         }

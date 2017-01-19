@@ -44,5 +44,5 @@ public interface IUserDataService {
      * @return 返回用户的信息
      * @throws Exception
      */
-    public UserData seachUserById(String id) throws Exception;
+    public UserData searchUserById(String id) throws Exception;
 }

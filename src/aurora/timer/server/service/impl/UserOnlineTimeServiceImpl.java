@@ -106,6 +106,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
             logger.warning("查找周数据失败");
             e.printStackTrace();
         }
+        conn.close();
         return set;
     }
 

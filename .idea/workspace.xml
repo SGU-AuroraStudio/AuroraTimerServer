@@ -5,12 +5,12 @@
     <bookmark url="file://$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserDataDAOImpl.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755fcb85-7ac1-4581-8346-2d56c23536eb" name="Default" comment="">
+    <list default="true" id="755fcb85-7ac1-4581-8346-2d56c23536eb" name="Default" comment="数据层和服务层基本功能完成">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.java" afterPath="$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserDataServiceImpl.java" afterPath="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserDataServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.java" afterPath="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserDataService.java" afterPath="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserDataService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserOnlineTimeService.java" afterPath="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserOnlineTimeService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +32,7 @@
       <file leaf-file-name="UserOnlineTimeDAOImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
+            <state relative-caret-position="-55">
               <caret line="54" column="44" lean-forward="true" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -46,8 +46,8 @@
       <file leaf-file-name="IUserOnlineTimeService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserOnlineTimeService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state relative-caret-position="-487">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,8 +58,8 @@
       <file leaf-file-name="IUserDataService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserDataService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+            <state relative-caret-position="663">
+              <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -68,8 +68,8 @@
       <file leaf-file-name="UserDataServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserDataServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="104" column="9" lean-forward="true" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+            <state relative-caret-position="318">
+              <caret line="72" column="48" lean-forward="true" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -78,8 +78,8 @@
       <file leaf-file-name="UserOnlineTimeServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="127" column="12" lean-forward="false" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+            <state relative-caret-position="2484">
+              <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,11 +127,11 @@
         <option value="/usr/java/jdk1.8/src.zip!/java/sql/Time.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/server/factory/ServiceFactory.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserDataDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserOnlineTimeService.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/server/service/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserDataService.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserOnlineTimeService.java" />
+        <option value="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserDataServiceImpl.java" />
       </list>
     </option>
@@ -635,6 +635,14 @@
       <option name="presentableId" value="Default" />
       <updated>1480425025630</updated>
     </task>
+    <task id="LOCAL-00001" summary="01-19">
+      <created>1484797268741</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1484797268741</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -650,7 +658,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32884902" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -673,6 +681,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="01-19" />
+    <MESSAGE value="数据层和服务层基本功能完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据层和服务层基本功能完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -994,9 +1007,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserOnlineTimeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-487">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
+        <state relative-caret-position="-55">
           <caret line="54" column="44" lean-forward="true" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1008,36 +1039,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="127" column="12" lean-forward="false" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+        <state relative-caret-position="2484">
+          <caret line="108" column="21" lean-forward="false" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserOnlineTimeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="43" column="22" lean-forward="true" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserDataServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="104" column="9" lean-forward="true" selection-start-line="104" selection-start-column="9" selection-end-line="104" selection-end-column="9" />
+        <state relative-caret-position="318">
+          <caret line="72" column="48" lean-forward="true" selection-start-line="72" selection-start-column="48" selection-end-line="72" selection-end-column="48" />
           <folding />
         </state>
       </provider>
