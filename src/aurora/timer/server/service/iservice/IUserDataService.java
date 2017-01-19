@@ -37,4 +37,12 @@ public interface IUserDataService {
      * @throws Exception
      */
     public boolean deleteAccount(String id) throws Exception;
+
+    /**
+     * 使用id查找用户，并返回他的非隐私信息，隐私用默认的填表
+     * @param id 用户的id
+     * @return 返回用户的信息
+     * @throws Exception
+     */
+    public UserData seachUserById(String id) throws Exception;
 }

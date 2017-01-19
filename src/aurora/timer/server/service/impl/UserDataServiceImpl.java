@@ -107,7 +107,19 @@ public class UserDataServiceImpl implements IUserDataService {
         return flag;
     }
 
-//    测试
+    /**
+     * 使用id查找用户，并返回他的非隐私信息，隐私用默认的填表
+     ** @param id 用户的id
+     * @return 返回用户的信息
+     * @throws Exception
+     */
+    @Override
+    public UserData seachUserById(String id) throws Exception {
+
+        return null;
+    }
+
+    //    测试
     public static void main(String args[]) throws Exception{
         UserData userData = new UserData("ARiKi","15115072042","8990890");
         if (new UserDataServiceImpl().deleteAccount("15115072042")){

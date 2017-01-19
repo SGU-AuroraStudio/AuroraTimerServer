@@ -34,25 +34,25 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
         Connection conn = DBConnection.getConnection();
         IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
         UserOnlineTime vo = null;
-        Date date = new Date(System.currentTimeMillis());
-        Time time = new Time(System.currentTimeMillis());
-        time = Time.valueOf(time.toString());
-        vo = iUserOnlineTimeDAO.findByUnique(id, date);
+        Date dateNow = new Date(System.currentTimeMillis());
+        Time timeNow = new Time(System.currentTimeMillis());
+        timeNow = Time.valueOf(timeNow.toString());
+        vo = iUserOnlineTimeDAO.findByUnique(id, dateNow);
         try {
             if (vo == null) {
                 logger.info("今日在线表没有找到");
                 vo = new UserOnlineTime();
                 vo.setID(id);
                 vo.setTodayOnlineTime(Long.decode("0"));
-                vo.setLastOnlineTime(time);
-                vo.setTodayDate(date);
+                vo.setLastOnlineTime(timeNow);
+                vo.setTodayDate(dateNow);
                 iUserOnlineTimeDAO.doCreate(vo);
-            } else if ((time.getTime() - vo.getLastOnlineTime().getTime()) < intervalTime) {
+            } else if ((timeNow.getTime() - vo.getLastOnlineTime().getTime()) < intervalTime) {
                 logger.info("正常情况");
                 UserOnlineTime voUpdate = new UserOnlineTime();
                 voUpdate.setID(id);
-                voUpdate.setTodayDate(date);
-                voUpdate.setLastOnlineTime(time);
+                voUpdate.setTodayDate(dateNow);
+                voUpdate.setLastOnlineTime(timeNow);
                 voUpdate.setTodayOnlineTime(vo.getTodayOnlineTime() + (voUpdate.getLastOnlineTime().getTime() -
                         vo.getLastOnlineTime().getTime()));
                 iUserOnlineTimeDAO.doUpdate(voUpdate);
@@ -61,8 +61,8 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
                 UserOnlineTime voUpdate = new UserOnlineTime();
                 voUpdate.setID(id);
                 voUpdate.setTodayOnlineTime(vo.getTodayOnlineTime());
-                voUpdate.setLastOnlineTime(time);
-                voUpdate.setTodayDate(date);
+                voUpdate.setLastOnlineTime(timeNow);
+                voUpdate.setTodayDate(dateNow);
                 iUserOnlineTimeDAO.doUpdate(voUpdate);
             }
         } catch (Exception e) {
@@ -121,7 +121,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
                 userOnlineTime = (UserOnlineTime) iterator.next();
                 System.out.println(userOnlineTime.getID()+","+userOnlineTime.getLastOnlineTime());
             }
-//            userOnlineTimeService.addTime("15115072043");
+            userOnlineTimeService.addTime("15115072043");
             System.err.println("成功了！！！");
         } catch (Exception e) {
             Logger.getLogger("hehe").warning("失败了");

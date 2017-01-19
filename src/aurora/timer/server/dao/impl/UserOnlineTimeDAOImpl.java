@@ -47,12 +47,12 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
      * @throws SQLException
      */
     public boolean doUpdate(UserOnlineTime vo) throws SQLException{
-        String sql = "UPDATE UserOnlineTime SET todaydate=?,lastonlinetime=?," +
-                "todayonlinetime=? WHERE ID=?";
+        String sql = "UPDATE UserOnlineTime SET todayonlinetime=?,lastonlinetime=? " +
+                "WHERE todaydate=?&&ID=?";
         pstmt = conn.prepareStatement(sql);
-        pstmt.setDate(1, vo.getTodayDate());
+        pstmt.setLong(1, vo.getTodayOnlineTime());
         pstmt.setTime(2, vo.getLastOnlineTime());
-        pstmt.setLong(3, vo.getTodayOnlineTime());
+        pstmt.setDate(3, vo.getTodayDate());
         pstmt.setString(4, vo.getID());
         return pstmt.executeUpdate() > 0;
     }
