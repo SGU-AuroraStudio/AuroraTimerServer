@@ -29,16 +29,14 @@ public class UserDataServiceImpl implements IUserDataService {
     @Override
     public boolean register(UserData vo) throws Exception {
         boolean flag = false;
-        Connection conn = DBConnection.getConnection();
-        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
-        try {
+        try (Connection conn = DBConnection.getConnection()) {
+            IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
             flag = iUserDataDAO.doCreate(vo);
             logger.fine("创建用户成功");
         } catch (SQLException e){
             logger.warning("创建用户失败");
             //e.printStackTrace();
         }
-        conn.close();
         return flag;
     }
 
@@ -51,15 +49,13 @@ public class UserDataServiceImpl implements IUserDataService {
     @Override
     public boolean changeData(UserData vo) throws Exception {
         boolean flag = false;
-        Connection conn = DBConnection.getConnection();
-        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
-        try {
+        try (Connection conn = DBConnection.getConnection()) {
+            IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
             flag = iUserDataDAO.doUpdate(vo);
             logger.fine("修改用户资料成功");
         } catch (Exception e) {
             logger.warning("修改用户资料失败");
         }
-        conn.close();
         return flag;
     }
 
@@ -72,10 +68,9 @@ public class UserDataServiceImpl implements IUserDataService {
     @Override
     public boolean logout(String id) throws Exception {
         boolean flag = false;
-        Connection conn = DBConnection.getConnection();
-        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
         UserData voUpdate = null;
-        try {
+        try (Connection conn = DBConnection.getConnection()){
+            IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
             voUpdate = iUserDataDAO.findById(id);
             if (voUpdate.getIsLeave() == true) {
                 logger.info("该用户已经是离开的");
@@ -99,11 +94,12 @@ public class UserDataServiceImpl implements IUserDataService {
     @Override
     public boolean deleteAccount(String id) throws Exception {
         boolean flag = false;
-        Connection conn = DBConnection.getConnection();
-        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
-        Set<String> set = new HashSet<>();
-        set.add(id);
-        flag = iUserDataDAO.doRemoveBatch(set);
+        try(Connection conn = DBConnection.getConnection()) {
+            IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
+            Set<String> set = new HashSet<>();
+            set.add(id);
+            flag = iUserDataDAO.doRemoveBatch(set);
+        }
         return flag;
     }
 
@@ -116,16 +112,14 @@ public class UserDataServiceImpl implements IUserDataService {
     @Override
     public UserData searchUserById(String id) throws Exception {
         UserData vo = null;
-        Connection conn = DBConnection.getConnection();
-        IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
-        try {
+        try (Connection conn = DBConnection.getConnection()) {
+            IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
             vo = iUserDataDAO.findById(id);
             logger.fine("查找成功");
         } catch (Exception e) {
             logger.warning("查找用户信息失败");
             e.printStackTrace();
         }
-        conn.close();
         return vo;
     }
 

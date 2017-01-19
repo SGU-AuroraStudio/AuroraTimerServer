@@ -31,14 +31,13 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
     @Override
     public boolean addTime(String id) throws Exception {
         long intervalTime = 10*60*1000;
-        Connection conn = DBConnection.getConnection();
-        IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
         UserOnlineTime vo = null;
         Date dateNow = new Date(System.currentTimeMillis());
         Time timeNow = new Time(System.currentTimeMillis());
         timeNow = Time.valueOf(timeNow.toString());
-        vo = iUserOnlineTimeDAO.findByUnique(id, dateNow);
-        try {
+        try (Connection conn = DBConnection.getConnection()){
+            IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
+            vo = iUserOnlineTimeDAO.findByUnique(id, dateNow);
             if (vo == null) {
                 logger.info("今日在线表没有找到");
                 vo = new UserOnlineTime();
@@ -67,10 +66,8 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            conn.close();
             return false;
         }
-        conn.close();
         return true;
     }
 
@@ -93,11 +90,10 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
     @Override
     public Set<UserOnlineTime> lastXWeekData(int x) throws Exception {
         Set<UserOnlineTime> set = new HashSet<>();
-        Connection conn = DBConnection.getConnection();
-        IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
         Date date = new Date(System.currentTimeMillis());
         int dayOfWeek = date.toLocalDate().getDayOfWeek().getValue();
-        try {
+        try (Connection conn = DBConnection.getConnection()){
+            IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
             for (int i = x*7; i < x*7+dayOfWeek; i++) {
                 set.addAll(iUserOnlineTimeDAO.findByData(Date.valueOf(date.toLocalDate().minusDays(i))));
             }
@@ -106,7 +102,6 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
             logger.warning("查找周数据失败");
             e.printStackTrace();
         }
-        conn.close();
         return set;
     }
 
