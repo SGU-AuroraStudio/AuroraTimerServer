@@ -30,7 +30,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
      * @throws SQLException
      */
     public boolean doCreate(UserOnlineTime vo) throws SQLException {
-        String sql = "INSERT INTO UserOnlineTime(ID,todaydate,lastonlinetime," +
+        String sql = "INSERT INTO UserOnlineTime(id,todaydate,lastonlinetime," +
                 "todayonlinetime) VALUES(?,?,?,?)";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, vo.getID());
@@ -48,7 +48,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
      */
     public boolean doUpdate(UserOnlineTime vo) throws SQLException{
         String sql = "UPDATE UserOnlineTime SET todayonlinetime=?,lastonlinetime=? " +
-                "WHERE todaydate=?&&ID=?";
+                "WHERE todaydate=?&&id=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setLong(1, vo.getTodayOnlineTime());
         pstmt.setTime(2, vo.getLastOnlineTime());
@@ -65,7 +65,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
      */
     @Override
     public boolean doRemoveById(String id) throws SQLException {
-        String sql = "DELETE FROM UserOnlineTime WHERE ID=?";
+        String sql = "DELETE FROM UserOnlineTime WHERE id=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         return pstmt.executeUpdate() > 0;
@@ -94,7 +94,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
      */
     @Override
     public boolean doRemoveUnique(String id, Date date) throws SQLException {
-        String sql = "DELETE FROM UserOnlineTime WHERE ID=? && date=?";
+        String sql = "DELETE FROM UserOnlineTime WHERE id=? && date=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setDate(2, date);
@@ -110,7 +110,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
     @Override
     public Set<UserOnlineTime> findById(String id) throws SQLException {
         UserOnlineTime vo = null;
-        String sql = "SELECT todaydate,lastonlinetime,todayonlinetime FROM UserOnlineTime WHERE ID=?";
+        String sql = "SELECT todaydate,lastonlinetime,todayonlinetime FROM UserOnlineTime WHERE id=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         ResultSet rs= pstmt.executeQuery();
@@ -135,7 +135,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
     @Override
     public  Set<UserOnlineTime> findByData(Date date) throws SQLException {
         UserOnlineTime vo = null;
-        String sql = "SELECT ID,lastonlinetime,todayonlinetime FROM UserOnlineTime WHERE todaydate=?";
+        String sql = "SELECT id,lastonlinetime,todayonlinetime FROM UserOnlineTime WHERE todaydate=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setDate(1, date);
         ResultSet rs= pstmt.executeQuery();
@@ -162,7 +162,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
     public UserOnlineTime findByUnique(String id, Date date) throws SQLException {
         UserOnlineTime vo = null;
         String sql = "SELECT lastonlinetime,todayonlinetime FROM UserOnlineTime " +
-                "WHERE ID=?&&todaydate=?";
+                "WHERE id=?&&todaydate=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         pstmt.setDate(2, date);
