@@ -19,7 +19,6 @@ public class registerServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
 
-
     }
 
     @Override

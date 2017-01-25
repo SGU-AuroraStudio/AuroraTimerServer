@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meat http-equiv="Content-Type" content="text/html;charset=UTF-8";></meat>
+        <title>计时器注册</title>
+        <link rel="stylesheet" type="text/css" href="css/register.css">
+        <script type="text/javascript" src="js/register.js"></script>
+        <script type="text/javascript" src="js/md5.js"></script>
+    </head>
+    <body>
+    <form name="register" id="register" method="post" action="1" onsubmit="return checkAll()">
+        昵称：<input class="init" type="text" name="name" id="name"><span id="nameMsg"></span><br>
+        帐号：<input class="init" type="text" name="id" id="id"><span id="idMsg"></span><br>
+        密码：<input class="init" type="password" name="pwd" id="pwd"><span id="pwdMsg"></span><br>
+        确认：<input class="init" type="password" name="conf" id="conf"><span id="confMsg"></span><br>
+        <input type="submit" name="sub" id="sub" value="提交"><br>
+    </form>
+    </body>
+</html>
