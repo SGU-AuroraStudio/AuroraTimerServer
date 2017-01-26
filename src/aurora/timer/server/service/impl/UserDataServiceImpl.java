@@ -123,13 +123,10 @@ public class UserDataServiceImpl implements IUserDataService {
         return vo;
     }
 
-    //    测试
-    public static void main(String args[]) throws Exception{
-        UserData userData = new UserData("ARiKi","15115072042","8990890");
-        if (new UserDataServiceImpl().deleteAccount("15115072042")){
-            System.out.println("omedeto!");
-        } else {
-            System.err.println("删除失败！");
-        }
+    public static void main(String args[]) throws Exception {
+        String id = "15115072044";
+        UserDataServiceImpl u = new UserDataServiceImpl();
+        UserData vo = u.searchUserById(id);
+        System.out.println(vo.getNickName());
     }
 }

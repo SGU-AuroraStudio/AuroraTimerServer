@@ -26,7 +26,7 @@ public class RegisterServlet extends HttpServlet {
         String id = req.getParameter("id");
         String pwd = req.getParameter("pwd");
         boolean flag = false;
-        UserData vo = new UserData(name, id, pwd);
+        UserData vo = new UserData(name,id,pwd);
         UserDataServiceImpl udsi = (UserDataServiceImpl) ServiceFactory.getIUserDataService();
         try {
             flag = udsi.register(vo);

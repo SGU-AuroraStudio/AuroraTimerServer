@@ -18,7 +18,7 @@ public class DBConnection {
     static final String USER = "root";
     static final String PASSWORD = "Zhouhao6371.";
     static final String URL = "jdbc:mysql://" + ADDRESS + ":" + HOST + "/" + DBNAME + "?" +
-            "user=" + USER + "&password=" + PASSWORD + "&characterEncoding=UTF8&useSSL=false";
+            "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&amp;characterEncoding=utf8&useSSL=false";
 
     /**
      * 每次获取一个新的Connection实例
