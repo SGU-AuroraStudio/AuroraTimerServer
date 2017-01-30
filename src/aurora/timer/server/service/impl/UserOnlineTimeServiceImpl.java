@@ -29,7 +29,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
      */
     @Override
     public boolean addTime(String id) throws Exception {
-        long intervalTime = 10*60*1000;
+        long intervalTime = 10*60*1000; //间隔判断时间，大于这个时间的提交都算重新上线
         UserOnlineTime vo = null;
         Date dateNow = new Date(System.currentTimeMillis());
         Time timeNow = new Time(System.currentTimeMillis());
