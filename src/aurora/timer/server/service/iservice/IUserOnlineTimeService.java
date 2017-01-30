@@ -30,4 +30,11 @@ public interface IUserOnlineTimeService {
      * @throws Exception
      */
     public Set<UserOnlineTime> lastXWeekData(int x) throws Exception;
+
+    /**
+     * 返回今天米那桑的情况
+     * @return 啊啊啊啊啊啊啊哈哈哈哈哈哈哈呵呵呵呵
+     * @throws Exception
+     */
+    public Set<UserOnlineTime> todayData() throws Exception;
 }

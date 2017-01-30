@@ -2,6 +2,7 @@ package aurora.timer.server.service.impl;
 
 import aurora.timer.server.dao.idao.IUserOnlineTimeDAO;
 import aurora.timer.server.factory.DAOFactory;
+import aurora.timer.server.factory.ServiceFactory;
 import aurora.timer.server.service.DBConnection;
 import aurora.timer.server.service.iservice.IUserOnlineTimeService;
 
@@ -104,23 +105,22 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
         return set;
     }
 
-    public static void main(String args[]) throws Exception{
-        UserOnlineTimeServiceImpl userOnlineTimeService = new UserOnlineTimeServiceImpl();
-        Set<UserOnlineTime> set;
-        UserOnlineTimeServiceImpl uotsi = new UserOnlineTimeServiceImpl();
-        UserOnlineTime userOnlineTime = null;
-        try{
-            set = uotsi.thisWeekData();
-            Iterator iterator = set.iterator();
-            while (iterator.hasNext()) {
-                userOnlineTime = (UserOnlineTime) iterator.next();
-                System.out.println(userOnlineTime.getID()+","+userOnlineTime.getLastOnlineTime());
-            }
-            userOnlineTimeService.addTime("15115072043");
-            System.err.println("成功了！！！");
+    /**
+     * 返回今天米那桑的情况
+     * @return 啊啊啊啊啊啊啊哈哈哈哈哈哈哈呵呵呵呵
+     * @throws Exception
+     */
+    @Override
+    public Set<UserOnlineTime> todayData() throws Exception {
+        Set<UserOnlineTime> set = new HashSet<>();
+        try (Connection conn = DBConnection.getConnection()){
+            IUserOnlineTimeDAO iuotd = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
+            set.addAll(iuotd.findByData(new Date(System.currentTimeMillis())));
+            logger.fine("完成查找");
         } catch (Exception e) {
-            Logger.getLogger("hehe").warning("失败了");
+            logger.warning("查找周数据失败");
             e.printStackTrace();
         }
+        return set;
     }
 }

@@ -28,19 +28,14 @@ public class ThisWeekServlet extends HttpServlet {
         IUserOnlineTimeService iuots = ServiceFactory.getIUserOnlineTimeService();
         Set<UserOnlineTime> set;
         JSONObject object = new JSONObject();
-        JSONObject temp;
         try {
-            set = iuots.thisWeekData();
+            set = iuots.todayData();
             Iterator<UserOnlineTime> iterator = set.iterator();
             UserOnlineTime vo;
-
             while (iterator.hasNext()) {
                 vo = iterator.next();
-                temp = new JSONObject();
-                temp.put("id", vo.getID());
-                temp.put("lastOn", vo.getLastOnlineTime().toString());
-                temp.put("todayOn", vo.getTodayOnlineTime().toString());
-                object.put(vo.getID(), temp);
+                object.put("id", vo.getID());
+                object.put("time", vo.getTodayOnlineTime().toString());
             }
 
             resp.getWriter().println(object.toJSONString());
