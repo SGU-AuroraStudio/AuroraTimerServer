@@ -2,6 +2,7 @@ package aurora.timer.server.service.iservice;
 
 import aurora.timer.server.vo.UserOnlineTime;
 
+import java.sql.Date;
 import java.util.Set;
 
 /**
@@ -37,4 +38,12 @@ public interface IUserOnlineTimeService {
      * @throws Exception
      */
     public Set<UserOnlineTime> todayData() throws Exception;
+
+    /**
+     * 查找by id。
+     * @param id id
+     * @return 呵呵。。。。
+     * @throws Exception
+     */
+    public UserOnlineTime searchByUnique(String id, Date date) throws Exception;
 }

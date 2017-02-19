@@ -123,4 +123,23 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
         }
         return set;
     }
+
+    /**
+     * 查找by id。
+     * @param id id
+     * @return 呵呵。。。。
+     * @throws Exception
+     */
+    @Override
+    public UserOnlineTime searchByUnique(String id, Date date) throws Exception {
+        UserOnlineTime userOnlineTime = null;
+        try (Connection conn = DBConnection.getConnection()) {
+            IUserOnlineTimeDAO iuotd = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
+            userOnlineTime = iuotd.findByUnique(id, date);
+            logger.fine("查找某天某人");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userOnlineTime;
+    }
 }
