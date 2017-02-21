@@ -2,7 +2,6 @@ package servlet;
 
 import javax.servlet.*;
 import java.io.IOException;
-import java.sql.Time;
 import java.time.LocalTime;
 
 /**
