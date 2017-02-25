@@ -1,6 +1,7 @@
 package servlet;
 
 import aurora.timer.server.factory.ServiceFactory;
+import aurora.timer.server.service.iservice.IUserDataService;
 import aurora.timer.server.service.iservice.IUserOnlineTimeService;
 import aurora.timer.server.vo.UserOnlineTime;
 import org.json.simple.JSONObject;
@@ -18,20 +19,23 @@ import java.util.Set;
 /**
  * Created by hao on 17-1-30.
  */
-public class ThisWeekServlet extends HttpServlet {
+public class LastXWeekServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setContentType("application/json;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
+        int lastX = Integer.valueOf(req.getParameter("x"));
 
         IUserOnlineTimeService iuots = ServiceFactory.getIUserOnlineTimeService();
+        IUserDataService iuds = ServiceFactory.getIUserDataService();
+
         Set<UserOnlineTime> set;
         Map<String, Long> map = new HashMap<>();
         JSONObject object = new JSONObject();
         JSONObject temp;
         try {
-            set = iuots.thisWeekData();
+            set = iuots.lastXWeekData(lastX);
             Iterator<UserOnlineTime> setIt = set.iterator();
             UserOnlineTime vo;
             while (setIt.hasNext()) {
@@ -50,6 +54,7 @@ public class ThisWeekServlet extends HttpServlet {
                 temp = new JSONObject();
                 temp.put("id", s);
                 temp.put("time", map.get(s).toString());
+                temp.put("name", iuds.searchUserById(s).getNickName());
 
                 object.put(s, temp);
             }

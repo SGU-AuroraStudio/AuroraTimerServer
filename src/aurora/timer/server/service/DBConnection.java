@@ -17,6 +17,8 @@ public class DBConnection {
     static final String DBNAME = "timer";
     static final String USER = "root";
     static final String PASSWORD = "Zhouhao6371.";
+//    static final String USER = "hao";
+//    static final String PASSWORD = "797987";
     static final String URL = "jdbc:mysql://" + ADDRESS + ":" + HOST + "/" + DBNAME + "?" +
             "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&amp;characterEncoding=utf8&useSSL=false";
 

@@ -94,7 +94,8 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
         int dayOfWeek = date.toLocalDate().getDayOfWeek().getValue();
         try (Connection conn = DBConnection.getConnection()){
             IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
-            for (int i = x*7; i < x*7+dayOfWeek; i++) {
+            // 设置从星期天开始的
+            for (int i = x*7; i < (dayOfWeek % 7) + 1 + x * 7; i++) {
                 set.addAll(iUserOnlineTimeDAO.findByData(Date.valueOf(date.toLocalDate().minusDays(i))));
             }
             logger.fine("完成查找");
