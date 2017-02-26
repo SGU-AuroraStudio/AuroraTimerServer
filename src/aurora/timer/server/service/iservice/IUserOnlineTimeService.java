@@ -18,13 +18,6 @@ public interface IUserOnlineTimeService {
     public boolean addTime(String id) throws Exception;
 
     /**
-     * 查询这周所有在线过的用户的这周的总时间
-     * @return 返回所有这周数据的集合，统计交给个客户端
-     * @throws Exception
-     */
-    public Set<UserOnlineTime> thisWeekData() throws Exception;
-
-    /**
      * 查询前第x周的在线用户数据
      * @param x x为0是代表本周，1代表上周，以此类推
      * @return 返回第前x周的数据的集合

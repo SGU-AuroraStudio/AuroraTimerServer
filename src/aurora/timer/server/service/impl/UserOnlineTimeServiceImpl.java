@@ -72,16 +72,6 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
     }
 
     /**
-     * 查询这周所有在线过的用户的这周的总时间
-     * @return 返回所有这周数据的集合，统计交给个客户端
-     * @throws Exception
-     */
-    @Override
-    public Set<UserOnlineTime> thisWeekData() throws Exception {
-        return lastXWeekData(0);
-    }
-
-    /**
      * 查询前第x周的在线用户数据
      * @param x x为0是代表本周，1代表上周，以此类推
      * @return 返回第前x周的数据的集合
@@ -95,8 +85,15 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
         try (Connection conn = DBConnection.getConnection()){
             IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
             // 设置从星期天开始的
-            for (int i = x*7; i < (dayOfWeek % 7) + 1 + x * 7; i++) {
-                set.addAll(iUserOnlineTimeDAO.findByData(Date.valueOf(date.toLocalDate().minusDays(i))));
+            if (x == 0) {
+                for (int i = 0; i < (dayOfWeek % 7) + 1; i++) {
+                    set.addAll(iUserOnlineTimeDAO.findByData(Date.valueOf(date.toLocalDate().minusDays(i))));
+                }
+            } else {
+                int j = (dayOfWeek % 7) + 1 + (x - 1) * 7;
+                for (int i = j; i < j + 7; i ++) {
+                    set.addAll(iUserOnlineTimeDAO.findByData(Date.valueOf(date.toLocalDate().minusDays(i))));
+                }
             }
             logger.fine("完成查找");
         } catch (Exception e) {
