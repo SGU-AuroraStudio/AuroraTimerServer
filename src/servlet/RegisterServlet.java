@@ -23,7 +23,7 @@ public class RegisterServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
-        String name = req.getParameter("name");
+        String name = req.getParameter("name") + "_";
         String id = req.getParameter("id");
         String pwd = req.getParameter("pwd");
         boolean flag = false;
@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
             resp.getWriter().println("<html>\n<head>\n");
             resp.getWriter().println("<meat http-equiv=\"Content-Type\" content=\"text/html;charset=UTF-8\";></meat>\n");
             resp.getWriter().println("<title>注册成功</title>\n</head>\n");
-            resp.getWriter().println("<body>\n<h1>注册成功, "+ name + "</h1>\n</body>\n</html>\n");
+            resp.getWriter().println("<body>\n<h1>注册成功, "+ name.substring(0, name.length()-1) + "</h1>\n</body>\n</html>\n");
         } else {
             resp.getWriter().println("<!DOCTYPE html>\n");
             resp.getWriter().println("<html>\n<head>\n");

@@ -122,11 +122,4 @@ public class UserDataServiceImpl implements IUserDataService {
         }
         return vo;
     }
-
-    public static void main(String args[]) throws Exception {
-        String id = "15115072044";
-        UserDataServiceImpl u = new UserDataServiceImpl();
-        UserData vo = u.searchUserById(id);
-        System.out.println(vo.getNickName());
-    }
 }
