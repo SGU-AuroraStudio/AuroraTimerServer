@@ -15,10 +15,10 @@ public class DBConnection {
     static final String ADDRESS = "127.0.0.1";
     static final String HOST = "3306";
     static final String DBNAME = "timer";
-    static final String USER = "root";
-    static final String PASSWORD = "Zhouhao6371.";
-//    static final String USER = "hao";
-//    static final String PASSWORD = "797987";
+//    static final String USER = "root";
+//    static final String PASSWORD = "Zhouhao6371.";
+    static final String USER = "hao";
+    static final String PASSWORD = "797987";
     static final String URL = "jdbc:mysql://" + ADDRESS + ":" + HOST + "/" + DBNAME + "?" +
             "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&amp;characterEncoding=utf8&useSSL=false";
 
@@ -36,7 +36,7 @@ public class DBConnection {
         } catch (SQLException e) {
             logger.warning("连接数据库失败");
         }
-        return new DBConnection().conn;
+        return conn;
     }
 //// 连接测试
 //   public static void main(String args[]) throws SQLException{

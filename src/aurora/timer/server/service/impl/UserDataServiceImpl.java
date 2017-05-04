@@ -29,13 +29,18 @@ public class UserDataServiceImpl implements IUserDataService {
     @Override
     public boolean register(UserData vo) throws Exception {
         boolean flag = false;
-        try (Connection conn = DBConnection.getConnection()) {
+        Connection conn = null;
+        try {
+            conn = DBConnection.getConnection();
             IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
             flag = iUserDataDAO.doCreate(vo);
             logger.fine("创建用户成功");
+            conn.close();
         } catch (SQLException e){
             logger.warning("创建用户失败");
             //e.printStackTrace();
+        } finally {
+            conn.close();
         }
         return flag;
     }
@@ -49,12 +54,16 @@ public class UserDataServiceImpl implements IUserDataService {
     @Override
     public boolean changeData(UserData vo) throws Exception {
         boolean flag = false;
-        try (Connection conn = DBConnection.getConnection()) {
+        Connection conn = null;
+        try {
+            conn = DBConnection.getConnection();
             IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
             flag = iUserDataDAO.doUpdate(vo);
             logger.fine("修改用户资料成功");
         } catch (Exception e) {
             logger.warning("修改用户资料失败");
+        } finally {
+            conn.close();
         }
         return flag;
     }
@@ -69,7 +78,9 @@ public class UserDataServiceImpl implements IUserDataService {
     public boolean logout(String id) throws Exception {
         boolean flag = false;
         UserData voUpdate = null;
-        try (Connection conn = DBConnection.getConnection()){
+        Connection conn = null;
+        try {
+            conn = DBConnection.getConnection();
             IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
             voUpdate = iUserDataDAO.findById(id);
             if (voUpdate.getIsLeave() == true) {
@@ -81,6 +92,8 @@ public class UserDataServiceImpl implements IUserDataService {
             logger.fine("已设置用户离开状态");
         } catch (Exception e) {
             logger.warning("设置用户离开状态失败");
+        } finally {
+            conn.close();
         }
         return flag;
     }
