@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_auroratimerserver" default="compile.module.auroratimerserver">
+  <dirname property="module.auroratimerserver.basedir" file="${ant.file.module_auroratimerserver}"/>
+  
+  <property name="module.jdk.home.auroratimerserver" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.auroratimerserver" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.auroratimerserver" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.auroratimerserver" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="auroratimerserver.output.dir" value="${module.auroratimerserver.basedir}/webapp/WEB-INF/classes"/>
+  <property name="auroratimerserver.testoutput.dir" value="${module.auroratimerserver.basedir}/out/test/AuroraTimerServer"/>
+  
+  <path id="auroratimerserver.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="auroratimerserver.module.production.classpath">
+    <path refid="${module.jdk.classpath.auroratimerserver}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+    <path refid="library.lib.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.40-bin.classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="auroratimerserver.runtime.production.module.classpath">
+    <pathelement location="${auroratimerserver.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+    <path refid="library.lib.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.40-bin.classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="auroratimerserver.module.classpath">
+    <path refid="${module.jdk.classpath.auroratimerserver}"/>
+    <pathelement location="${auroratimerserver.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+    <path refid="library.lib.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.40-bin.classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="auroratimerserver.runtime.module.classpath">
+    <pathelement location="${auroratimerserver.testoutput.dir}"/>
+    <pathelement location="${auroratimerserver.output.dir}"/>
+    <path refid="library.kotlinjavaruntime.classpath"/>
+    <path refid="library.lib.classpath"/>
+    <path refid="library.mysql-connector-java-5.1.40-bin.classpath"/>
+    <fileset dir="${basedir}/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.auroratimerserver">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.auroratimerserver">
+    <patternset refid="excluded.from.module.auroratimerserver"/>
+  </patternset>
+  
+  <path id="auroratimerserver.module.sourcepath">
+    <dirset dir="${module.auroratimerserver.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.auroratimerserver" depends="compile.module.auroratimerserver.production,compile.module.auroratimerserver.tests" description="Compile module AuroraTimerServer"/>
+  
+  <target name="compile.module.auroratimerserver.production" depends="register.custom.compilers" description="Compile module AuroraTimerServer; production classes">
+    <mkdir dir="${auroratimerserver.output.dir}"/>
+    <javac2 destdir="${auroratimerserver.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.auroratimerserver}/javac">
+      <compilerarg line="${compiler.args.auroratimerserver}"/>
+      <bootclasspath refid="auroratimerserver.module.bootclasspath"/>
+      <classpath refid="auroratimerserver.module.production.classpath"/>
+      <src refid="auroratimerserver.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.auroratimerserver"/>
+    </javac2>
+    
+    <copy todir="${auroratimerserver.output.dir}">
+      <fileset dir="${module.auroratimerserver.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.auroratimerserver.tests" depends="register.custom.compilers,compile.module.auroratimerserver.production" description="compile module AuroraTimerServer; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.auroratimerserver" description="cleanup module">
+    <delete dir="${auroratimerserver.output.dir}"/>
+    <delete dir="${auroratimerserver.testoutput.dir}"/>
+  </target>
+</project>

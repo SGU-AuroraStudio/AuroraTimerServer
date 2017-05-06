@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="auroratimerserver" default="all">
+  
+  
+  <property file="auroratimerserver.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+    <include name="*.swc"/>
+    <include name="*.war"/>
+    <include name="*.ane"/>
+    <include name="*.zip"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.kotlinjavaruntime.classpath">
+    <pathelement location="${path.variable.kotlin_bundled}/lib/kotlin-reflect.jar"/>
+    <pathelement location="${path.variable.kotlin_bundled}/lib/kotlin-runtime.jar"/>
+  </path>
+  
+  <path id="library.lib.classpath">
+    <fileset dir="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  
+  <path id="library.mysql-connector-java-5.1.40-bin.classpath"/>
+  
+  
+  <!-- Global Libraries -->
+  
+  <path id="library.lib.classpath">
+    <fileset dir="/home/hao/soft/apache-tomcat-8.5.11/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_auroratimerserver.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.auroratimerserver, clean.artifact.auroratimerserver:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.auroratimerserver" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.auroratimerserver:war" value="${basedir}/out/artifacts/AuroraTimerServer_war"/>
+    <property name="artifact.output.auroratimerserver:war_exploded" value="${basedir}/out/artifacts/AuroraTimerServer_war_exploded"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.AuroraTimerServer_war.war" value="${artifacts.temp.dir}/AuroraTimerServer_war.war"/>
+  </target>
+  
+  <target name="clean.artifact.auroratimerserver:war_exploded" description="clean AuroraTimerServer:war exploded artifact output">
+    <delete dir="${artifact.output.auroratimerserver:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.auroratimerserver:war" depends="init.artifacts, artifact.auroratimerserver:war_exploded" description="Build &#39;AuroraTimerServer:war&#39; artifact">
+    <property name="artifact.temp.output.auroratimerserver:war" value="${artifacts.temp.dir}/AuroraTimerServer_war"/>
+    <mkdir dir="${artifact.temp.output.auroratimerserver:war}"/>
+    <zip destfile="${temp.jar.path.AuroraTimerServer_war.war}">
+      <zipfileset dir="${artifact.output.auroratimerserver:war_exploded}"/>
+    </zip>
+    <copy file="${temp.jar.path.AuroraTimerServer_war.war}" tofile="${artifact.temp.output.auroratimerserver:war}/AuroraTimerServer_war.war"/>
+  </target>
+  
+  <target name="artifact.auroratimerserver:war_exploded" depends="init.artifacts, compile.module.auroratimerserver" description="Build &#39;AuroraTimerServer:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.auroratimerserver:war_exploded}"/>
+    <mkdir dir="${artifact.output.auroratimerserver:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/classes">
+      <fileset dir="${auroratimerserver.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib"/>
+    <copy file="${path.variable.kotlin_bundled}/lib/kotlin-runtime.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/kotlin-runtime.jar"/>
+    <copy file="${path.variable.kotlin_bundled}/lib/kotlin-reflect.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/kotlin-reflect.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/el-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/el-api.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/jasper.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/jasper.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/jsp-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/jsp-api.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/catalina.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/ecj-4.5.1.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/ecj-4.5.1.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/jasper-el.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/jasper-el.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/jaspic-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/jaspic-api.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-api.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-jni.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-jni.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/catalina-ha.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina-ha.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/servlet-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/servlet-api.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-dbcp.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-dbcp.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-jdbc.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-jdbc.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-util.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-util.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/catalina-ant.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina-ant.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-coyote.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-coyote.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/websocket-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/websocket-api.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-i18n-es.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-i18n-es.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-i18n-fr.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-i18n-fr.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-i18n-ja.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-i18n-ja.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/annotations-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/annotations-api.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/catalina-tribes.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina-tribes.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/json-simple-1.1.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/json-simple-1.1.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-util-scan.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-util-scan.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/tomcat-websocket.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-websocket.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/catalina-storeconfig.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina-storeconfig.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/mysql-connector-java-5.1.40-bin.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.40-bin.jar"/>
+    <copy file="${basedir}/../../../../../../home/hao/soft/apache-tomcat-8.5.11/lib/mysql-connector-java-5.1.40-bin1.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.40-bin1.jar"/>
+    <copy file="${basedir}/lib/el-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/el-api.jar"/>
+    <copy file="${basedir}/lib/jasper.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/jasper.jar"/>
+    <copy file="${basedir}/lib/jsp-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/jsp-api.jar"/>
+    <copy file="${basedir}/lib/catalina.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina.jar"/>
+    <copy file="${basedir}/lib/ecj-4.5.1.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/ecj-4.5.1.jar"/>
+    <copy file="${basedir}/lib/jasper-el.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/jasper-el.jar"/>
+    <copy file="${basedir}/lib/jaspic-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/jaspic-api.jar"/>
+    <copy file="${basedir}/lib/tomcat-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-api.jar"/>
+    <copy file="${basedir}/lib/tomcat-jni.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-jni.jar"/>
+    <copy file="${basedir}/lib/catalina-ha.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina-ha.jar"/>
+    <copy file="${basedir}/lib/servlet-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/servlet-api.jar"/>
+    <copy file="${basedir}/lib/tomcat-dbcp.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-dbcp.jar"/>
+    <copy file="${basedir}/lib/tomcat-jdbc.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-jdbc.jar"/>
+    <copy file="${basedir}/lib/tomcat-util.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-util.jar"/>
+    <copy file="${basedir}/lib/catalina-ant.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina-ant.jar"/>
+    <copy file="${basedir}/lib/tomcat-coyote.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-coyote.jar"/>
+    <copy file="${basedir}/lib/websocket-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/websocket-api.jar"/>
+    <copy file="${basedir}/lib/tomcat-i18n-es.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-i18n-es.jar"/>
+    <copy file="${basedir}/lib/tomcat-i18n-fr.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-i18n-fr.jar"/>
+    <copy file="${basedir}/lib/tomcat-i18n-ja.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-i18n-ja.jar"/>
+    <copy file="${basedir}/lib/annotations-api.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/annotations-api.jar"/>
+    <copy file="${basedir}/lib/catalina-tribes.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina-tribes.jar"/>
+    <copy file="${basedir}/lib/json-simple-1.1.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/json-simple-1.1.jar"/>
+    <copy file="${basedir}/lib/tomcat-util-scan.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-util-scan.jar"/>
+    <copy file="${basedir}/lib/tomcat-websocket.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/tomcat-websocket.jar"/>
+    <copy file="${basedir}/lib/catalina-storeconfig.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/catalina-storeconfig.jar"/>
+    <copy file="${basedir}/lib/mysql-connector-java-5.1.40-bin.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.40-bin.jar"/>
+    <copy file="${basedir}/lib/mysql-connector-java-5.1.40-bin1.jar" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.40-bin1.jar"/>
+    <copy todir="${artifact.output.auroratimerserver:war_exploded}">
+      <fileset dir="${basedir}/webapp"/>
+    </copy>
+    <mkdir dir="${artifact.output.auroratimerserver:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/webapp/WEB-INF/web.xml" tofile="${artifact.output.auroratimerserver:war_exploded}/WEB-INF/web.xml"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.auroratimerserver:war, artifact.auroratimerserver:war_exploded" description="Build all artifacts">
+    <mkdir dir="${artifact.output.auroratimerserver:war}"/>
+    <copy todir="${artifact.output.auroratimerserver:war}">
+      <fileset dir="${artifact.temp.output.auroratimerserver:war}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
