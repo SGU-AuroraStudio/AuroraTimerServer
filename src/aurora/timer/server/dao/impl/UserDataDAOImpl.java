@@ -14,17 +14,17 @@ import java.util.Set;
  * Created by hao on 17-1-16.
  */
 public class UserDataDAOImpl implements IUserDataDAO {
-    private Connection coon;
+    private Connection conn;
     private PreparedStatement pstmt;
 
     public UserDataDAOImpl(Connection coon) {
-        this.coon = coon;
+        this.conn = coon;
     }
     @Override
     public boolean doCreate(UserData vo) throws SQLException {
         String sql = "INSERT INTO UserData(nickname,id,telnumber,shorttelnumber," +
                 "displayurl,loginstatus,isleave,password) VALUES (?,?,?,?,?,?,?,?)";
-        pstmt = coon.prepareStatement(sql);
+        pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, vo.getNickName());
         pstmt.setString(2, vo.getID());
         pstmt.setString(3, vo.getTelNumber());
@@ -40,7 +40,7 @@ public class UserDataDAOImpl implements IUserDataDAO {
     public boolean doUpdate(UserData vo) throws SQLException {
         String sql = "UPDATE UserData SET nickname=?,telnumber=?,shorttelnumber=?," +
                 "displayurl=?,loginstatus=?,isleave=?,password=? WHERE id=?";
-        pstmt = coon.prepareStatement(sql);
+        pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, vo.getNickName());
         pstmt.setString(2, vo.getTelNumber());
         pstmt.setString(3, vo.getShortTelNumber());
@@ -64,7 +64,7 @@ public class UserDataDAOImpl implements IUserDataDAO {
             sql.append(iter.next()).append(",");
         }
         sql.delete(sql.length()-1, sql.length()).append(")");
-        pstmt = coon.prepareStatement(sql.toString());
+        pstmt = conn.prepareStatement(sql.toString());
         return pstmt.executeUpdate() == ids.size();
     }
 
@@ -73,7 +73,7 @@ public class UserDataDAOImpl implements IUserDataDAO {
         UserData vo = null;
         String sql = "SELECT nickname,telnumber,shorttelnumber," +
                 "displayurl,loginstatus,isleave,password FROM UserData WHERE id=?";
-        pstmt = coon.prepareStatement(sql);
+        pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         ResultSet result = pstmt.executeQuery();
         if (result.next()) {
