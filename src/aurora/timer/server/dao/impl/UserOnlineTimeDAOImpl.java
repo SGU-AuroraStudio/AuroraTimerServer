@@ -2,12 +2,9 @@ package aurora.timer.server.dao.impl;
 
 import aurora.timer.server.dao.idao.IUserOnlineTimeDAO;
 import aurora.timer.server.vo.UserOnlineTime;
-import com.mysql.jdbc.Connection;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+//import com.mysql.jdbc.Connection;
+import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 

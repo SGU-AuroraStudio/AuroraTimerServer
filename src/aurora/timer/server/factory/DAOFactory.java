@@ -6,7 +6,9 @@ import aurora.timer.server.dao.idao.IUserOnlineTimeDAO;
 import aurora.timer.server.dao.impl.AdminDataDAOImpl;
 import aurora.timer.server.dao.impl.UserDataDAOImpl;
 import aurora.timer.server.dao.impl.UserOnlineTimeDAOImpl;
-import com.mysql.jdbc.Connection;
+
+import java.sql.Connection;
+//import com.mysql.jdbc.Connection;
 
 /**
  * Created by hao on 17-1-15.

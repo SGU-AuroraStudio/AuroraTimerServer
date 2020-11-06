@@ -11,7 +11,7 @@ public class AdminDataDAOImpl implements IAdminDataDAO {
     private PreparedStatement pstmt;
     private Connection conn;
 
-    public AdminDataDAOImpl(Connection coon) {
+    public AdminDataDAOImpl(Connection conn) {
         this.conn = conn;
     }
 

@@ -1,7 +1,9 @@
 package aurora.timer.server.factory;
 
+import aurora.timer.server.service.impl.AdminDataService;
 import aurora.timer.server.service.impl.UserDataServiceImpl;
 import aurora.timer.server.service.impl.UserOnlineTimeServiceImpl;
+import aurora.timer.server.service.iservice.IAdminDataService;
 import aurora.timer.server.service.iservice.IUserDataService;
 
 /**
@@ -15,4 +17,6 @@ public class ServiceFactory {
     public static IUserDataService getIUserDataService() {
         return new UserDataServiceImpl();
     }
+
+    public static IAdminDataService getIAdminDataService() { return new AdminDataService(); }
 }

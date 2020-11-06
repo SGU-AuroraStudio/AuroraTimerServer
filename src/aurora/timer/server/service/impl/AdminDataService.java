@@ -6,8 +6,9 @@ import aurora.timer.server.factory.DAOFactory;
 import aurora.timer.server.service.DBConnection;
 import aurora.timer.server.service.iservice.IAdminDataService;
 import aurora.timer.server.vo.AdminData;
-import com.mysql.jdbc.Connection;
+//import com.mysql.jdbc.Connection;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 

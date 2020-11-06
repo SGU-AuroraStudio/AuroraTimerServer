@@ -7,7 +7,7 @@ import aurora.timer.server.service.DBConnection;
 import aurora.timer.server.service.iservice.IUserOnlineTimeService;
 
 import aurora.timer.server.vo.UserOnlineTime;
-import com.mysql.jdbc.Connection;
+//import com.mysql.jdbc.Connection; 原本是这个，因为MySQL版本不一样在本地用不了，服务器的是5我的是8
 
 import java.sql.Date;
 import java.sql.Time;

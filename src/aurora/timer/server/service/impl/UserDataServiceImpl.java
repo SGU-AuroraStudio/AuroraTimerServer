@@ -6,8 +6,9 @@ import aurora.timer.server.service.DBConnection;
 import aurora.timer.server.service.iservice.IUserDataService;
 import aurora.timer.server.vo.*;
 
-import com.mysql.jdbc.Connection;
+//import com.mysql.jdbc.Connection;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
