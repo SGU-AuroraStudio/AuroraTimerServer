@@ -69,12 +69,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>test</servlet-name>
-        <servlet-class>servlet.TestServlet</servlet-class>
+        <servlet-name>termTotalServlet</servlet-name>
+        <servlet-class>servlet.TermTotalServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>test</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>termTotalServlet</servlet-name>
+        <url-pattern>/termTotal</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -84,6 +84,15 @@
     <servlet-mapping>
         <servlet-name>admin</servlet-name>
         <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>test</servlet-name>
+        <servlet-class>servlet.TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/test</url-pattern>
     </servlet-mapping>
     
     <servlet>

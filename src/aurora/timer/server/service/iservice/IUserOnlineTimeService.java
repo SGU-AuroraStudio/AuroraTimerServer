@@ -3,6 +3,7 @@ package aurora.timer.server.service.iservice;
 import aurora.timer.server.vo.UserOnlineTime;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.Set;
 
 /**
@@ -39,4 +40,12 @@ public interface IUserOnlineTimeService {
      * @throws Exception
      */
     public UserOnlineTime searchByUnique(String id, Date date) throws Exception;
+
+    /**
+     * 查询本学期计时用，需要传入本学期第一天的日期
+     * @param dateStart 本学期第一天
+     * @return 阿巴阿巴
+     * @throws Exception
+     */
+    public Set<UserOnlineTime> searchByFromDate2Today(Date dateStart) throws Exception;
 }

@@ -2,7 +2,6 @@ package aurora.timer.server.service.impl;
 
 import aurora.timer.server.dao.idao.IUserOnlineTimeDAO;
 import aurora.timer.server.factory.DAOFactory;
-import aurora.timer.server.factory.ServiceFactory;
 import aurora.timer.server.service.DBConnection;
 import aurora.timer.server.service.iservice.IUserOnlineTimeService;
 
@@ -13,7 +12,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -31,7 +29,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
      */
     @Override
     public boolean addTime(String id) throws Exception {
-        long intervalTime = 10*60*1000; //间隔判断时间，大于这个时间的提交都算重新上线
+        long intervalTime = 20*60*1000; //间隔判断时间，大于这个时间的提交都算重新上线
         UserOnlineTime vo = null;
         Date dateNow = new Date(System.currentTimeMillis());
         Time timeNow = new Time(System.currentTimeMillis());
@@ -85,7 +83,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
         int dayOfWeek = date.toLocalDate().getDayOfWeek().getValue();
         try (Connection conn = DBConnection.getConnection()){
             IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
-            // 设置从星期天开始的
+            // 从星期天开始
             if (x == 0) {
                 for (int i = 0; i < (dayOfWeek % 7) + 1; i++) {
                     set.addAll(iUserOnlineTimeDAO.findByData(Date.valueOf(date.toLocalDate().minusDays(i))));
@@ -140,5 +138,19 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
             e.printStackTrace();
         }
         return userOnlineTime;
+    }
+
+    @Override
+    public Set<UserOnlineTime> searchByFromDate2Today(Date dateStart) throws Exception {
+        Set<UserOnlineTime> set = new HashSet<>();
+        try (Connection conn = DBConnection.getConnection()){
+            IUserOnlineTimeDAO iuotd = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
+            set=iuotd.findByFromDate2Today(dateStart);
+            logger.fine("查找查找某段时间某人");
+        } catch (Exception e) {
+            logger.warning("查找查找某段时间某人失败");
+            e.printStackTrace();
+        }
+        return set;
     }
 }

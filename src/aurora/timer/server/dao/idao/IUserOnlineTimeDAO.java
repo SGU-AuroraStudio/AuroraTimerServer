@@ -3,6 +3,7 @@ package aurora.timer.server.dao.idao;
 import aurora.timer.server.vo.UserOnlineTime;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.Set;
 
 /**
@@ -74,4 +75,12 @@ public interface IUserOnlineTimeDAO{
      * @throws Exception
      */
     public UserOnlineTime findByUnique(String id, Date date) throws Exception;
+
+    /**
+     * 根据用户查询一段时间的在线记录（dateStart-今天）
+     * @param dateStart 本学期第一天
+     * @return 阿巴阿巴
+     * @throws Exception
+     */
+    public Set<UserOnlineTime> findByFromDate2Today(Date dateStart) throws Exception;
 }

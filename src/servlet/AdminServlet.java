@@ -42,7 +42,7 @@ public class AdminServlet extends HttpServlet {
         //TODO:检查id是否为管理员
         resp.setContentType("text/txt;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        req.setCharacterEncoding("UTF-8");
+        req.setCharacterEncoding("UTF-8"); //注意：req也要设置编码，否者中文会乱码
 
         boolean flag = false;
         IAdminDataService iads = ServiceFactory.getIAdminDataService();
