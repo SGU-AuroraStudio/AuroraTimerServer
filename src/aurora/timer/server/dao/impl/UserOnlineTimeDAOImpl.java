@@ -179,14 +179,14 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
         UserOnlineTime vo = null;
         Set<UserOnlineTime> set = new HashSet<>();
         Date dateNow = new Date(System.currentTimeMillis());
-
-        String sql = "SELECT id,todayonlinetime FROM UserOnlineTime WHERE todaydate>?&&todaydate<?";
+        // 包括开头和结尾日期
+        String sql = "SELECT id,todayonlinetime FROM UserOnlineTime WHERE todaydate>=?&&todaydate<=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setDate(1, dateStart);
         pstmt.setDate(2, dateNow);
 
         ResultSet rs= pstmt.executeQuery();
-        if (rs.next()) {
+        while (rs.next()) {
             vo = new UserOnlineTime();
             vo.setTodayDate(dateNow);
             vo.setID(rs.getString(1));
