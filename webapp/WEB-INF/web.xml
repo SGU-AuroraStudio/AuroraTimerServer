@@ -69,15 +69,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>termTotalServlet</servlet-name>
-        <servlet-class>servlet.TermTotalServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>termTotalServlet</servlet-name>
-        <url-pattern>/termTotal</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>admin</servlet-name>
         <servlet-class>servlet.AdminServlet</servlet-class>
     </servlet>

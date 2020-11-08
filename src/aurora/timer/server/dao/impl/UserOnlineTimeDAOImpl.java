@@ -158,7 +158,7 @@ public class UserOnlineTimeDAOImpl implements IUserOnlineTimeDAO {
     @Override
     public UserOnlineTime findByUnique(String id, Date date) throws SQLException {
         UserOnlineTime vo = null;
-        String sql = "SELECT id,lastonlinetime,todayonlinetime FROM UserOnlineTime " +
+        String sql = "SELECT lastonlinetime,todayonlinetime FROM UserOnlineTime " +
                 "WHERE id=?&&todaydate=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);

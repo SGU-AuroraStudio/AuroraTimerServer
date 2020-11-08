@@ -94,9 +94,14 @@ public class LastXWeekServlet extends HttpServlet {
             Iterator<String> termMapIt = termMap.keySet().iterator();
             while (termMapIt.hasNext()) {
                 String s = termMapIt.next();
-                    temp = (JSONObject) object.get(s);
+                temp = (JSONObject) object.get(s);
+                if(temp==null) {//本周没上线
+//                    temp = new JSONObject();
+//                    temp.put("id", s);
+//                    temp.put("name", iuds.searchUserById(s).getNickName());
+                    continue;
+                }
                 temp.put("termTime", termMap.get(s).toString());
-
                 object.put(s, temp);
             }
 
