@@ -38,8 +38,7 @@ public class AdminServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("updateAdminData");
-        //TODO:检查id是否为管理员
+        //TODO:检查id是否为管理员,id和密码正确才可以修改
         resp.setContentType("text/txt;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8"); //注意：req也要设置编码，否者中文会乱码
@@ -65,7 +64,6 @@ public class AdminServlet extends HttpServlet {
     }
 
     public void returnAdminData(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("returnAdminData");
         resp.setContentType("text/txt;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
         IAdminDataService iads = ServiceFactory.getIAdminDataService();

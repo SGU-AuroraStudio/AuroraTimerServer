@@ -24,13 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755fcb85-7ac1-4581-8346-2d56c23536eb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/LastXWeekServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/LastXWeekServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/TermTotalServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/TermTotalServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/web.xml" afterDir="false" />
-    </list>
+    <list default="true" id="755fcb85-7ac1-4581-8346-2d56c23536eb" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,30 +108,31 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/webapp/WEB-INF/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="nodejs_interpreter_path" value="node" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatSettingConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="servlet.until" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\Users\56440\Desktop\计时器\计时器\AuroraTimerServer\webapp\WEB-INF\lib" />
-      <recent name="G:\Users\56440\Desktop\计时器\计时器\AuroraTimerServer\src" />
-      <recent name="G:\Users\56440\Desktop\计时器\计时器\AuroraTimerServer\lib" />
-      <recent name="$PROJECT_DIR$/src/servlet/until" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/webapp/soft" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/webapp/pages/register" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="servlet.until" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="G:\Users\56440\Desktop\计时器\计时器\AuroraTimerServer\webapp\WEB-INF\lib" />
+      <recent name="G:\Users\56440\Desktop\计时器\计时器\AuroraTimerServer\src" />
+      <recent name="G:\Users\56440\Desktop\计时器\计时器\AuroraTimerServer\lib" />
+      <recent name="$PROJECT_DIR$/src/servlet/until" />
+    </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.WEB">
+  <component name="RunManager" selected="Application.DBConnection">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -172,26 +167,6 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
       <method />
-    </configuration>
-    <configuration name="DBConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="aurora.timer.server.service.DBConnection" />
-      <module name="AuroraTimerServer" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="aurora.timer.server.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
@@ -290,6 +265,35 @@
       <setting name="launchBrowserUrl" value="" />
       <setting name="depsClasspath" value="false" />
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="DBConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aurora.timer.server.service.DBConnection" />
+      <module name="AuroraTimerServer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aurora.timer.server.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -423,18 +427,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method v="2" />
+    <configuration name="WEB" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/timer" />
+      <option name="docBase" value="$PROJECT_DIR$/webapp" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.39" />
+          <option name="number" value="0" />
+          <option name="path" value="/usr/local/apache-tomcat-9.0.39" />
+          <option name="version" value="9.0.39.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="" />
+      <option name="docBase" value="" />
+      <option name="envOptions" />
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo" />
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
       <item itemvalue="Application.DBConnection" />
-      <item itemvalue="Tomcat Server.WEB" />
+      <item itemvalue="Smart Tomcat.WEB" />
     </list>
     <recent_temporary>
       <list>
@@ -442,7 +470,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
@@ -678,15 +706,6 @@
     <option name="localTasksCounter" value="27" />
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
@@ -740,10 +759,11 @@
       <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state x="448" y="101" key="#Project_Structure/0.23.1920.993@0.23.1920.993" timestamp="1604576906385" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604649027686">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="414" y="189" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605098626086">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604649027686" />
+    <state x="414" y="189" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.993@0.23.1920.993" timestamp="1605098626086" />
     <state x="773" y="220" width="513" height="590" key="#com.intellij.ide.util.MemberChooser" timestamp="1604743935794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -769,22 +789,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="634" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604635983403" />
-    <state width="1457" height="317" key="GridCell.Tab.0.bottom" timestamp="1604820543506">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="246" key="GridCell.Tab.0.bottom" timestamp="1605782546943">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1457" height="317" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604820543506" />
-    <state width="1457" height="317" key="GridCell.Tab.0.center" timestamp="1604820543506">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="246" key="GridCell.Tab.0.bottom/0.23.1920.993@0.23.1920.993" timestamp="1605782546943" />
+    <state width="1878" height="246" key="GridCell.Tab.0.center" timestamp="1605782546942">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1457" height="317" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604820543506" />
-    <state width="1457" height="317" key="GridCell.Tab.0.left" timestamp="1604820543506">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="246" key="GridCell.Tab.0.center/0.23.1920.993@0.23.1920.993" timestamp="1605782546942" />
+    <state width="1878" height="246" key="GridCell.Tab.0.left" timestamp="1605782546937">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1457" height="317" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604820543506" />
-    <state width="1457" height="317" key="GridCell.Tab.0.right" timestamp="1604820543506">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="246" key="GridCell.Tab.0.left/0.23.1920.993@0.23.1920.993" timestamp="1605782546937" />
+    <state width="1878" height="246" key="GridCell.Tab.0.right" timestamp="1605782546942">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1457" height="317" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604820543506" />
+    <state width="1878" height="246" key="GridCell.Tab.0.right/0.23.1920.993@0.23.1920.993" timestamp="1605782546942" />
     <state width="1457" height="317" key="GridCell.Tab.1.bottom" timestamp="1604820543397">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -833,14 +857,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1457" height="317" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604820307307" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1604649399493">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="440" y="113" key="SettingsEditor" timestamp="1605091319737">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604649399493" />
+    <state x="440" y="113" key="SettingsEditor/0.23.1920.993@0.23.1920.993" timestamp="1605091319737" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1604580244988">
       <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.23.1920.993@0.23.1920.993" timestamp="1604580244988" />
+    <state x="383" y="142" key="new project wizard" timestamp="1605184621198">
+      <screen x="0" y="23" width="1920" height="993" />
+    </state>
+    <state x="383" y="142" key="new project wizard/0.23.1920.993@0.23.1920.993" timestamp="1605184621198" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/servlet/LoginServlet.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
