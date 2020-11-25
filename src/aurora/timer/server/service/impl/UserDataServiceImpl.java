@@ -8,6 +8,8 @@ import aurora.timer.server.vo.*;
 
 //import com.mysql.jdbc.Connection;
 
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashSet;
@@ -136,4 +138,23 @@ public class UserDataServiceImpl implements IUserDataService {
         }
         return vo;
     }
+
+    @Override
+    public boolean updateBgById(String id, InputStream bg) throws Exception {
+        boolean flag = false;
+        Connection conn = null;
+        try {
+            conn = DBConnection.getConnection();
+            IUserDataDAO iUserDataDAO = DAOFactory.getIUserDataDAOInstance(conn);
+            flag = iUserDataDAO.updateBgById(id,bg);
+            logger.fine("修改用户背景图片成功");
+        } catch (Exception e) {
+            logger.warning("修改用户背景图片失败");
+        } finally {
+            conn.close();
+        }
+        return flag;
+    }
+
+
 }

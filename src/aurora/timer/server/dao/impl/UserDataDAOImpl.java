@@ -3,10 +3,8 @@ package aurora.timer.server.dao.impl;
 import aurora.timer.server.dao.idao.IUserDataDAO;
 import aurora.timer.server.vo.UserData;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.InputStream;
+import java.sql.*;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -20,6 +18,7 @@ public class UserDataDAOImpl implements IUserDataDAO {
     public UserDataDAOImpl(Connection coon) {
         this.conn = coon;
     }
+
     @Override
     public boolean doCreate(UserData vo) throws SQLException {
         String sql = "INSERT INTO UserData(nickname,id,telnumber,shorttelnumber," +
@@ -63,7 +62,7 @@ public class UserDataDAOImpl implements IUserDataDAO {
         while (iter.hasNext()) {
             sql.append(iter.next()).append(",");
         }
-        sql.delete(sql.length()-1, sql.length()).append(")");
+        sql.delete(sql.length() - 1, sql.length()).append(")");
         pstmt = conn.prepareStatement(sql.toString());
         return pstmt.executeUpdate() == ids.size();
     }
@@ -72,7 +71,7 @@ public class UserDataDAOImpl implements IUserDataDAO {
     public UserData findById(String id) throws SQLException {
         UserData vo = null;
         String sql = "SELECT nickname,telnumber,shorttelnumber," +
-                "displayurl,loginstatus,isleave,password FROM UserData WHERE id=?";
+                "displayurl,loginstatus,isleave,password,bg FROM UserData WHERE id=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, id);
         ResultSet result = pstmt.executeQuery();
@@ -88,5 +87,14 @@ public class UserDataDAOImpl implements IUserDataDAO {
             vo.setPassWord(result.getString(7));
         }
         return vo;
+    }
+
+    @Override
+    public boolean updateBgById(String id, InputStream bg) throws Exception {
+        String sql = "UPDATE userdata SET bg=? WHERE id=?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, id);
+        pstmt.setBinaryStream(2, bg, bg.available());
+        return pstmt.executeUpdate() > 0;
     }
 }
