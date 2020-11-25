@@ -2,6 +2,9 @@ package aurora.timer.server.service.iservice;
 
 import aurora.timer.server.vo.UserData;
 
+import java.io.InputStream;
+import java.sql.Blob;
+
 /**
  * Created by hao on 17-1-17.
  */
@@ -45,4 +48,13 @@ public interface IUserDataService {
      * @throws Exception
      */
     public UserData searchUserById(String id) throws Exception;
+
+    /**
+     * 根据id更新背景图片
+     * @param id 传入用户的ID
+     * @param bg 传入背景图片 Blob
+     * @return 成功则返回true，有一个或一个以上删除失败则返回false
+     * @throws Exception
+     */
+    public boolean updateBgById(String id, InputStream bg) throws Exception;
 }
