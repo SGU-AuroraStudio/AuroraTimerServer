@@ -93,8 +93,21 @@ public class UserDataDAOImpl implements IUserDataDAO {
     public boolean updateBgById(String id, InputStream bg) throws Exception {
         String sql = "UPDATE userdata SET bg=? WHERE id=?";
         pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, id);
-        pstmt.setBinaryStream(2, bg, bg.available());
+        pstmt.setBinaryStream(1, bg, bg.available());
+        pstmt.setString(2, id);
         return pstmt.executeUpdate() > 0;
+    }
+
+    @Override
+    public InputStream findBgById(String id) throws SQLException {
+        InputStream bg = null;
+        String sql = "SELECT bg FROM UserData WHERE id=?";
+        pstmt = conn.prepareStatement(sql);
+        pstmt.setString(1, id);
+        ResultSet result = pstmt.executeQuery();
+        if(result.next()){
+            bg = result.getBinaryStream(1);
+        }
+        return bg;
     }
 }

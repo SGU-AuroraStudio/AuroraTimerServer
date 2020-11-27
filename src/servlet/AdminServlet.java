@@ -2,6 +2,7 @@ package servlet;
 
 import aurora.timer.server.factory.ServiceFactory;
 import aurora.timer.server.service.iservice.IAdminDataService;
+import aurora.timer.server.service.iservice.IUserDataService;
 import aurora.timer.server.vo.AdminData;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.simple.JSONObject;
@@ -38,7 +39,6 @@ public class AdminServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("updateAdminData");
         //TODO:检查id是否为管理员
         resp.setContentType("text/txt;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
@@ -46,6 +46,7 @@ public class AdminServlet extends HttpServlet {
 
         boolean flag = false;
         IAdminDataService iads = ServiceFactory.getIAdminDataService();
+        IUserDataService iuds = ServiceFactory.getIUserDataService();
         try {
             AdminData data = new AdminData();
             data.setAnnouncement(req.getParameter("announcement"));
@@ -64,8 +65,7 @@ public class AdminServlet extends HttpServlet {
             resp.getWriter().println("false");
     }
 
-    public void returnAdminData(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("returnAdminData");
+    private void returnAdminData(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/txt;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
         IAdminDataService iads = ServiceFactory.getIAdminDataService();
@@ -85,10 +85,11 @@ public class AdminServlet extends HttpServlet {
         }
     }
 
-    public boolean isFreeTime(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private boolean isFreeTime(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         IAdminDataService iads = ServiceFactory.getIAdminDataService();
         try {
             AdminData adminData = iads.getAdminData();
+            // 系统时间和 数据库存的 设置的时间对比
             long systemCurrentTimeLong = System.currentTimeMillis();
             return systemCurrentTimeLong > adminData.getFreeTimeStart().getTime() && systemCurrentTimeLong < adminData.getFreeTimeEnd().getTime() + 1200000; //向后移20分钟，防止在例如17：01分的时候返回true
         } catch (Exception e) {
