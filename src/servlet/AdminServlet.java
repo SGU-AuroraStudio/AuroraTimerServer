@@ -49,7 +49,6 @@ public class AdminServlet extends HttpServlet {
         try {
             // 检查id和密码是否是管理员
             if(id.equals(ADMIN_ID) && password.equals(iuds.searchUserById(ADMIN_ID).getPassWord())) {
-                IAdminDataService iads = ServiceFactory.getIAdminDataService();
                 AdminData data = new AdminData();
                 data.setAnnouncement(req.getParameter("announcement"));
                 data.setDutylist(req.getParameter("dutyList"));

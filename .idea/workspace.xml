@@ -24,81 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="755fcb85-7ac1-4581-8346-2d56c23536eb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuroraTimerServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AuroraTimerServer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/idao/IAdminDataDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/idao/IAdminDataDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/idao/IDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/idao/IDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/idao/IUserDataDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/idao/IUserDataDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/idao/IUserOnlineTimeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/idao/IUserOnlineTimeDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/impl/AdminDataDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/impl/AdminDataDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/impl/UserDataDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/impl/UserDataDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/factory/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/factory/DAOFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/factory/ServiceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/factory/ServiceFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/DBConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/impl/AdminDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/impl/AdminDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/impl/UserDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/impl/UserDataServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/iservice/IAdminDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/iservice/IAdminDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/iservice/IUserDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/iservice/IUserDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/iservice/IUserOnlineTimeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/service/iservice/IUserOnlineTimeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/vo/AdminData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/vo/AdminData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/vo/UserData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/vo/UserData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/vo/UserOnlineTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/aurora/timer/server/vo/UserOnlineTime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/AdminServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/AdminServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/AllFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/AllFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/BgServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/BgServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/FindByIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/FindByIdServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/LastXWeekServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/LastXWeekServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/LoginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/RegisterServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/TestServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/TestServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/TimerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/TimerServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/TodayTimeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/TodayTimeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/until/ClientAddr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/until/ClientAddr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/until/Version.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AuroraTimerServer_war_exploded/WEB-INF/classes/servlet/until/Version.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/server/dao/idao/IUserDataDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/server/dao/idao/IUserDataDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserDataDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/server/dao/impl/UserDataDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/server/service/impl/UserDataServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aurora/timer/server/service/iservice/IUserDataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/AdminServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/BgServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/BgServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servlet/TimerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servlet/TimerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/idao/IAdminDataDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/idao/IAdminDataDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/idao/IDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/idao/IDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/idao/IUserDataDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/idao/IUserDataDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/idao/IUserOnlineTimeDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/idao/IUserOnlineTimeDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/impl/AdminDataDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/impl/AdminDataDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/impl/UserDataDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/impl/UserDataDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/dao/impl/UserOnlineTimeDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/factory/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/factory/DAOFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/factory/ServiceFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/factory/ServiceFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/DBConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/DBConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/impl/AdminDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/impl/AdminDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/impl/UserDataServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/impl/UserDataServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/impl/UserOnlineTimeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/iservice/IAdminDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/iservice/IAdminDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/iservice/IUserDataService.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/iservice/IUserDataService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/iservice/IUserOnlineTimeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/service/iservice/IUserOnlineTimeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/vo/AdminData.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/vo/AdminData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/vo/UserData.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/vo/UserData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/vo/UserOnlineTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/aurora/timer/server/vo/UserOnlineTime.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/AdminServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/AdminServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/AllFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/AllFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/BgServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/BgServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/FindByIdServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/FindByIdServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/LastXWeekServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/LastXWeekServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/LoginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/RegisterServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/TestServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/TestServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/TimerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/TimerServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/TodayTimeServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/TodayTimeServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/until/ClientAddr.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/until/ClientAddr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/until/Version.class" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/WEB-INF/classes/servlet/until/Version.class" afterDir="false" />
-    </list>
+    <list default="true" id="755fcb85-7ac1-4581-8346-2d56c23536eb" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,7 +126,7 @@
       <recent name="$PROJECT_DIR$/webapp/pages/register" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.WEB">
+  <component name="RunManager" selected="Smart Tomcat.Web">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -235,26 +161,6 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
       <method />
-    </configuration>
-    <configuration name="DBConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="aurora.timer.server.service.DBConnection" />
-      <module name="AuroraTimerServer" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="aurora.timer.server.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
@@ -353,6 +259,35 @@
       <setting name="launchBrowserUrl" value="" />
       <setting name="depsClasspath" value="false" />
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="DBConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="aurora.timer.server.service.DBConnection" />
+      <module name="AuroraTimerServer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="aurora.timer.server.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
@@ -488,18 +423,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method v="2" />
+    <configuration name="Web" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/timer" />
+      <option name="docBase" value="$PROJECT_DIR$/webapp" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.39" />
+          <option name="number" value="0" />
+          <option name="path" value="/usr/local/apache-tomcat-9.0.39" />
+          <option name="version" value="9.0.39.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="" />
+      <option name="docBase" value="" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/9.0.39" />
+          <option name="number" value="0" />
+          <option name="path" value="/usr/local/apache-tomcat-9.0.39" />
+          <option name="version" value="9.0.39.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
       <item itemvalue="Application.DBConnection" />
-      <item itemvalue="Tomcat Server.WEB" />
+      <item itemvalue="Smart Tomcat.Web" />
     </list>
     <recent_temporary>
       <list>
@@ -507,7 +477,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
@@ -815,10 +785,11 @@
       <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state x="448" y="101" key="#Project_Structure/0.23.1920.993@0.23.1920.993" timestamp="1604576906385" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606372960420">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="414" y="189" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606553898671">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606372960420" />
+    <state x="414" y="189" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.993@0.23.1920.993" timestamp="1606553898671" />
     <state x="773" y="220" width="513" height="590" key="#com.intellij.ide.util.MemberChooser" timestamp="1606481460762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -848,38 +819,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="634" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606476723892" />
-    <state width="1660" height="356" key="GridCell.Tab.0.bottom" timestamp="1606483512147">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="332" key="GridCell.Tab.0.bottom" timestamp="1606560720006">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1660" height="356" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606483512147" />
-    <state width="1660" height="356" key="GridCell.Tab.0.center" timestamp="1606483512147">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="332" key="GridCell.Tab.0.bottom/0.23.1920.993@0.23.1920.993" timestamp="1606560720006" />
+    <state width="1878" height="332" key="GridCell.Tab.0.center" timestamp="1606560720005">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1660" height="356" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606483512147" />
-    <state width="1660" height="356" key="GridCell.Tab.0.left" timestamp="1606483512146">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="332" key="GridCell.Tab.0.center/0.23.1920.993@0.23.1920.993" timestamp="1606560720005" />
+    <state width="1878" height="332" key="GridCell.Tab.0.left" timestamp="1606560720004">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1660" height="356" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606483512146" />
-    <state width="1660" height="356" key="GridCell.Tab.0.right" timestamp="1606483512147">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="332" key="GridCell.Tab.0.left/0.23.1920.993@0.23.1920.993" timestamp="1606560720004" />
+    <state width="1878" height="332" key="GridCell.Tab.0.right" timestamp="1606560720005">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1660" height="356" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606483512147" />
-    <state width="1660" height="356" key="GridCell.Tab.1.bottom" timestamp="1606483656363">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="332" key="GridCell.Tab.0.right/0.23.1920.993@0.23.1920.993" timestamp="1606560720005" />
+    <state width="1878" height="332" key="GridCell.Tab.1.bottom" timestamp="1606560719622">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1660" height="356" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606483656363" />
-    <state width="1660" height="356" key="GridCell.Tab.1.center" timestamp="1606483656363">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="332" key="GridCell.Tab.1.bottom/0.23.1920.993@0.23.1920.993" timestamp="1606560719622" />
+    <state width="1878" height="332" key="GridCell.Tab.1.center" timestamp="1606560719619">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1660" height="356" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606483656363" />
-    <state width="1660" height="356" key="GridCell.Tab.1.left" timestamp="1606483656363">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="332" key="GridCell.Tab.1.center/0.23.1920.993@0.23.1920.993" timestamp="1606560719619" />
+    <state width="1878" height="332" key="GridCell.Tab.1.left" timestamp="1606560719618">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1660" height="356" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606483656363" />
-    <state width="1660" height="356" key="GridCell.Tab.1.right" timestamp="1606483656363">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1878" height="332" key="GridCell.Tab.1.left/0.23.1920.993@0.23.1920.993" timestamp="1606560719618" />
+    <state width="1878" height="332" key="GridCell.Tab.1.right" timestamp="1606560719620">
+      <screen x="0" y="23" width="1920" height="993" />
     </state>
     <state width="1660" height="356" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606483656363" />
+    <state width="1878" height="332" key="GridCell.Tab.1.right/0.23.1920.993@0.23.1920.993" timestamp="1606560719620" />
     <state width="1660" height="356" key="GridCell.Tab.2.bottom" timestamp="1606483511967">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

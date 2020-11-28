@@ -22,10 +22,8 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 public class BgServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String id = req.getParameter("id");
         String password = req.getParameter("password");
-
         IUserDataService iuds = ServiceFactory.getIUserDataService();
         try {
             // 检查密码
