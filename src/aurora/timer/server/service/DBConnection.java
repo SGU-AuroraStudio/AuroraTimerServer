@@ -25,7 +25,8 @@ public class DBConnection {
 //    static final String URL = "jdbc:mysql://" + ADDRESS + ":" + HOST + "/" + DBNAME + "?" +
 //            "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai"; //MySql 8 要加serverTimezone
     static final String URL = "jdbc:mysql://" + ADDRESS + ":" + PORT + "/" + DBNAME + "?" +
-                "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&amp;characterEncoding=utf8&useSSL=false"; //MySql 5
+                "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&amp;&characterEncoding=utf8&useSSL=false"; //MySql 5.
+
 
     /**
      * 每次获取一个新的Connection实例
