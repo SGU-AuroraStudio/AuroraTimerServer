@@ -25,7 +25,6 @@ public class AllFilter implements Filter {
                 flag = true;
             }
         }
-        flag=true;
         if (!(time.getHour() > 22 || time.getHour() < 7) && flag) {
             filterChain.doFilter(servletRequest, servletResponse); //放行
         }

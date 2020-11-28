@@ -13,17 +13,12 @@ import java.io.IOException;
 import java.sql.Time;
 
 public class AdminServlet extends HttpServlet {
-//    @Override
-//    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setContentType("application/json;charset=UTF-8");
-//        resp.setCharacterEncoding("UTF-8");
-//        String id = req.getParameter("id");
-//        System.out.println("service");
-//
-//    }
+    // ===============在这里修改管理员id===============
+    private String ADMIN_ID="123123";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 带x=freeTime就返回放挂是否是时间，否者返回公告
         if (req.getParameter("x") == null)
             returnAdminData(req, resp);
         else if (req.getParameter("x").equals("freeTime")) {
@@ -45,15 +40,23 @@ public class AdminServlet extends HttpServlet {
         boolean flag = false;
         IAdminDataService iads = ServiceFactory.getIAdminDataService();
         IUserDataService iuds = ServiceFactory.getIUserDataService();
+        String id = req.getParameter("id");
+        String password = req.getParameter("password");
+        if(id==null || password == null){
+            resp.getWriter().println("false");
+            return;
+        }
         try {
-            AdminData data = new AdminData();
-            data.setAnnouncement(req.getParameter("announcement"));
-            data.setDutylist(req.getParameter("dutyList"));
-            System.out.println(data.getDutylist());
-            data.setFreeTimeStart(new Time(Long.parseLong(req.getParameter("freeTimeStart"))));
-            data.setFreeTimeEnd(new Time(Long.parseLong(req.getParameter("freeTimeEnd"))));
-
-            flag = iads.updateAdminData(data);
+            // 检查id和密码是否是管理员
+            if(id.equals(ADMIN_ID) && password.equals(iuds.searchUserById(ADMIN_ID).getPassWord())) {
+                IAdminDataService iads = ServiceFactory.getIAdminDataService();
+                AdminData data = new AdminData();
+                data.setAnnouncement(req.getParameter("announcement"));
+                data.setDutylist(req.getParameter("dutyList"));
+                data.setFreeTimeStart(new Time(Long.parseLong(req.getParameter("freeTimeStart"))));
+                data.setFreeTimeEnd(new Time(Long.parseLong(req.getParameter("freeTimeEnd"))));
+                flag = iads.updateAdminData(data);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
