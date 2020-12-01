@@ -1,9 +1,9 @@
 package aurora.timer.server.service;
 
 //import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Driver;
+import com.mysql.jdbc.Driver; //MySql5 用
 //import com.mysql.cj.jdbc.ConnectionImpl;
-//import com.mysql.cj.jdbc.Driver;
+//import com.mysql.cj.jdbc.Driver; //MySql8 用
 
 import java.sql.Connection;
 import java.sql.DriverManager;
