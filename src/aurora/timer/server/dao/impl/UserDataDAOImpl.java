@@ -91,7 +91,7 @@ public class UserDataDAOImpl implements IUserDataDAO {
 
     @Override
     public boolean updateBgById(String id, InputStream bg) throws Exception {
-        String sql = "UPDATE userdata SET bg=? WHERE id=?";
+        String sql = "UPDATE UserData SET bg=? WHERE id=?";
         pstmt = conn.prepareStatement(sql);
         pstmt.setBinaryStream(1, bg, bg.available());
         pstmt.setString(2, id);

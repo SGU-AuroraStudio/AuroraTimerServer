@@ -9,7 +9,7 @@ import java.time.LocalTime;
 /**
  * Created by hao on 17-2-20.
  */
-public class AllFilter implements Filter {
+public class TimerFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -17,11 +17,12 @@ public class AllFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        servletResponse.setCharacterEncoding("gbk");
         //超过晚上11点以及小于早上6点不予计时
         LocalTime time = LocalTime.now();
         boolean flag = false;
         for (int i = 0; i < ClientAddr.addr.length; i ++) {
-            if (ClientAddr.addr[i].equals(servletRequest.getRemoteAddr())) {
+            if (ClientAddr.addr[i].equals(servletRequest.getRemoteAddr()) || servletRequest.getRemoteAddr().contains(ClientAddr.addr[i])) {
                 flag = true;
             }
         }
@@ -29,7 +30,7 @@ public class AllFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse); //放行
         }
         if(!flag)
-            servletResponse.getWriter().println("请在工作室计时。（如果您已经在工作室，请联系管理员。出bug了，先检查工作室ip有没有变） ");
+            servletResponse.getWriter().println("请在工作室计时。（如果您已经在工作室，请联系管理员。\n出bug了，先检查工作室ip有没有变） ");
     }
 
     @Override
