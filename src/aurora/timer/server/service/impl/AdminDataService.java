@@ -14,16 +14,16 @@ import java.util.logging.Logger;
 
 public class AdminDataService implements IAdminDataService {
     Logger logger = Logger.getLogger("AdminDateService");
+
     @Override
     public boolean updateAdminData(AdminData vo) throws Exception {
         boolean flag = false;
         try (Connection conn = DBConnection.getConnection()) {
             IAdminDataDAO iAdminDataDAODataDAO = DAOFactory.getIAdminDataDAOInstance(conn);
             flag = iAdminDataDAODataDAO.doUpdate(vo);
-            logger.fine("更新管理员数据成功");
-            conn.close();
+            logger.fine("更新管理员数据成功\n" + vo.getAnnouncement() + "\n" + vo.getDutylist() + "\n" + vo.getFreeTimeStart() + "\n" + vo.getFreeTimeEnd());
         } catch (SQLException e) {
-            logger.warning("更新管理员数据失败");
+            logger.warning("更新管理员数据失败" + e);
         }
         return flag;
     }
@@ -34,10 +34,8 @@ public class AdminDataService implements IAdminDataService {
         try (Connection conn = DBConnection.getConnection()) {
             IAdminDataDAO iAdminDataDAODataDAO = DAOFactory.getIAdminDataDAOInstance(conn);
             adminData = iAdminDataDAODataDAO.findById1();
-            logger.fine("查询管理员数据成功");
-            conn.close();
         } catch (SQLException e) {
-            logger.warning("查询管理员数据失败");
+            logger.warning("查询管理员数据失败" + e);
         }
         return adminData;
     }

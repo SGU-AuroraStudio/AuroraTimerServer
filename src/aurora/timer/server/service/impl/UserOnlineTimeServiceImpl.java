@@ -21,21 +21,23 @@ import java.util.logging.Logger;
  */
 public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
     Logger logger = Logger.getLogger("UserOnlineTime");
+
     /**
      * 增加时间就靠这个了！每5分钟上传一次，如果距离最近在线时间小于10分钟的话则加时
+     *
      * @param id 在线的用户的ID
      * @return 加时成功返回true，失败返回false
      * @throws Exception
      */
     @Override
     public boolean addTime(String id) throws Exception {
-        if(id==null) return false;
-        long intervalTime = 15*60*1000; //间隔判断时间，大于这个时间的提交都算重新上线
+        if (id == null) return false;
+        long intervalTime = 15 * 60 * 1000; //间隔判断时间，大于这个时间的提交都算重新上线
         UserOnlineTime vo = null;
         Date dateNow = new Date(System.currentTimeMillis());
         Time timeNow = new Time(System.currentTimeMillis());
         timeNow = Time.valueOf(timeNow.toString());
-        try (Connection conn = DBConnection.getConnection()){
+        try (Connection conn = DBConnection.getConnection()) {
             IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
             vo = iUserOnlineTimeDAO.findByUnique(id, dateNow);
             if (vo == null) {
@@ -65,6 +67,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
                 iUserOnlineTimeDAO.doUpdate(voUpdate);
             }
         } catch (Exception e) {
+            logger.warning(id + " 上传时间失败 " + e);
             e.printStackTrace();
             return false;
         }
@@ -73,6 +76,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
 
     /**
      * 查询前第x周的在线用户数据
+     *
      * @param x x为0是代表本周，1代表上周，以此类推
      * @return 返回第前x周的数据的集合
      * @throws Exception
@@ -82,7 +86,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
         Set<UserOnlineTime> set = new HashSet<>();
         Date date = new Date(System.currentTimeMillis());
         int dayOfWeek = date.toLocalDate().getDayOfWeek().getValue();
-        try (Connection conn = DBConnection.getConnection()){
+        try (Connection conn = DBConnection.getConnection()) {
             IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
             // 从星期天开始
             if (x == 0) {
@@ -91,13 +95,13 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
                 }
             } else {
                 int j = (dayOfWeek % 7) + 1 + (x - 1) * 7;
-                for (int i = j; i < j + 7; i ++) {
+                for (int i = j; i < j + 7; i++) {
                     set.addAll(iUserOnlineTimeDAO.findByData(Date.valueOf(date.toLocalDate().minusDays(i))));
                 }
             }
             logger.fine("完成查找");
         } catch (Exception e) {
-            logger.warning("查找周数据失败");
+            logger.warning("查找周数据失败" + e);
             e.printStackTrace();
         }
         return set;
@@ -105,18 +109,19 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
 
     /**
      * 返回今天米那桑的情况
+     *
      * @return 啊啊啊啊啊啊啊哈哈哈哈哈哈哈呵呵呵呵
      * @throws Exception
      */
     @Override
     public Set<UserOnlineTime> todayData() throws Exception {
         Set<UserOnlineTime> set = new HashSet<>();
-        try (Connection conn = DBConnection.getConnection()){
+        try (Connection conn = DBConnection.getConnection()) {
             IUserOnlineTimeDAO iuotd = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
             set.addAll(iuotd.findByData(new Date(System.currentTimeMillis())));
             logger.fine("完成查找");
         } catch (Exception e) {
-            logger.warning("查找周数据失败");
+            logger.warning("查找周数据失败" + e);
             e.printStackTrace();
         }
         return set;
@@ -124,6 +129,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
 
     /**
      * 查找by id。
+     *
      * @param id id
      * @return 呵呵。。。。
      * @throws Exception
@@ -144,12 +150,12 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
     @Override
     public Set<UserOnlineTime> searchByFromDate2Today(Date dateStart) throws Exception {
         Set<UserOnlineTime> set = new HashSet<>();
-        try (Connection conn = DBConnection.getConnection()){
+        try (Connection conn = DBConnection.getConnection()) {
             IUserOnlineTimeDAO iuotd = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
-            set=iuotd.findByFromDate2Today(dateStart);
+            set = iuotd.findByFromDate2Today(dateStart);
             logger.fine("查找查找某段时间某人");
         } catch (Exception e) {
-            logger.warning("查找查找某段时间某人失败");
+            logger.warning("查找查找某段时间某人失败" + e);
             e.printStackTrace();
         }
         return set;

@@ -42,8 +42,8 @@ public class UserDataServiceImpl implements IUserDataService {
             logger.fine("创建用户成功");
             conn.close();
         } catch (SQLException e) {
-            logger.warning("创建用户失败");
-            //e.printStackTrace();
+            logger.warning("创建用户失败" + e);
+            e.printStackTrace();
         } finally {
             conn.close();
         }
@@ -67,7 +67,8 @@ public class UserDataServiceImpl implements IUserDataService {
             flag = iUserDataDAO.doUpdate(vo);
             logger.fine("修改用户资料成功");
         } catch (Exception e) {
-            logger.warning("修改用户资料失败");
+            logger.warning("修改用户资料失败" + e);
+            e.printStackTrace();
         } finally {
             conn.close();
         }
@@ -98,7 +99,8 @@ public class UserDataServiceImpl implements IUserDataService {
             flag = iUserDataDAO.doUpdate(voUpdate);
             logger.fine("已设置用户离开状态");
         } catch (Exception e) {
-            logger.warning("设置用户离开状态失败");
+            logger.warning("设置用户离开状态失败" + e);
+            e.printStackTrace();
         } finally {
             conn.close();
         }
@@ -140,7 +142,7 @@ public class UserDataServiceImpl implements IUserDataService {
             if (vo != null)
                 logger.fine("查找成功");
         } catch (Exception e) {
-            logger.warning("查找用户信息失败");
+            logger.warning("查找用户信息失败" + e);
             e.printStackTrace();
         }
         return vo;
@@ -157,7 +159,8 @@ public class UserDataServiceImpl implements IUserDataService {
             if (flag)
                 logger.info("用户:" + id + " 修改背景图片成功");
         } catch (Exception e) {
-            logger.warning("用户:" + id + "修改背景图片失败");
+            logger.warning("用户:" + id + "修改背景图片失败" + e);
+            e.printStackTrace();
         } finally {
             conn.close();
         }
@@ -175,7 +178,7 @@ public class UserDataServiceImpl implements IUserDataService {
             if (bg != null)
                 logger.info("用户:" + id + " 查找背景图片成功");
         } catch (Exception e) {
-            logger.warning("用户:" + id + "查找背景图片失败");
+            logger.warning("用户:" + id + "查找背景图片失败" + e);
             e.printStackTrace();
         } finally {
             conn.close();
