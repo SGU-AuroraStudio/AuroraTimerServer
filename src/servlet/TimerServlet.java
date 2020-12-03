@@ -19,17 +19,19 @@ public class TimerServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
-        resp.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("utf-8");
         String id = req.getParameter("id");
         String ver = req.getParameter("ver");
-        if (Double.parseDouble(ver)<ALLOW_VER){
-            resp.getWriter().println("请使用版本大于"+ALLOW_VER+"的计时器");
+        // 检查版本
+        if (ver == null || Double.parseDouble(ver)<ALLOW_VER){
+            resp.getWriter().println("请使用版本大于"+ALLOW_VER+"的计时器\n建议重启检测是否有更新版本");
             return;
         }
         if (id == null) {
             resp.getWriter().println("false");
             return;
         }
+
         IUserOnlineTimeService iuots = ServiceFactory.getIUserOnlineTimeService();
         IUserDataService iuds = ServiceFactory.getIUserDataService();
         boolean flag = false;
