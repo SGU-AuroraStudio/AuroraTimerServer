@@ -15,11 +15,17 @@ import java.io.IOException;
  * Created by hao on 17-1-30.
  */
 public class TimerServlet extends HttpServlet {
+    private static final double ALLOW_VER = 4.4;
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String id = req.getParameter("id");
+        String ver = req.getParameter("ver");
+        if (Double.parseDouble(ver)<ALLOW_VER){
+            resp.getWriter().println("请使用版本大于"+ALLOW_VER+"的计时器");
+            return;
+        }
         if (id == null) {
             resp.getWriter().println("false");
             return;

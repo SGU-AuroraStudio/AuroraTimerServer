@@ -11,10 +11,13 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class AdminServlet extends HttpServlet {
     // ===============在这里修改管理员id===============
-    private String ADMIN_ID="123123";
+    private String ADMIN_ID = "18125061059";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -42,13 +45,13 @@ public class AdminServlet extends HttpServlet {
         IUserDataService iuds = ServiceFactory.getIUserDataService();
         String id = req.getParameter("id");
         String password = req.getParameter("password");
-        if(id==null || password == null){
+        if (id == null || password == null) {
             resp.getWriter().println("false");
             return;
         }
         try {
             // 检查id和密码是否是管理员
-            if(id.equals(ADMIN_ID) && password.equals(iuds.searchUserById(ADMIN_ID).getPassWord())) {
+            if (id.equals(ADMIN_ID) && password.equals(iuds.searchUserById(ADMIN_ID).getPassWord())) {
                 AdminData data = new AdminData();
                 data.setAnnouncement(req.getParameter("announcement"));
                 data.setDutylist(req.getParameter("dutyList"));
@@ -90,7 +93,8 @@ public class AdminServlet extends HttpServlet {
         try {
             AdminData adminData = iads.getAdminData();
             // 系统时间和 数据库存的 设置的时间对比
-            long systemCurrentTimeLong = System.currentTimeMillis();
+            Time time = new Time(System.currentTimeMillis());
+            long systemCurrentTimeLong = new Time(time.getHours(), time.getMinutes(), time.getSeconds()).getTime();
             return systemCurrentTimeLong > adminData.getFreeTimeStart().getTime() && systemCurrentTimeLong < adminData.getFreeTimeEnd().getTime() + 1200000; //向后移20分钟，防止在例如17：01分的时候返回true
         } catch (Exception e) {
             e.printStackTrace();
