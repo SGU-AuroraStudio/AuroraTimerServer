@@ -25,7 +25,7 @@ import java.util.Set;
 public class LastXWeekServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("application/json;charset=UTF-8");
+        resp.setContentType("application/json;charset=GBK");
         resp.setCharacterEncoding("GBK");
 
         int lastX = Integer.valueOf(req.getParameter("x"));

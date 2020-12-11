@@ -1,7 +1,6 @@
 package aurora.timer.server.service.impl;
 
 import aurora.timer.server.dao.idao.IAdminDataDAO;
-import aurora.timer.server.dao.idao.IUserDataDAO;
 import aurora.timer.server.factory.DAOFactory;
 import aurora.timer.server.service.DBConnection;
 import aurora.timer.server.service.iservice.IAdminDataService;
@@ -34,6 +33,7 @@ public class AdminDataService implements IAdminDataService {
         try (Connection conn = DBConnection.getConnection()) {
             IAdminDataDAO iAdminDataDAODataDAO = DAOFactory.getIAdminDataDAOInstance(conn);
             adminData = iAdminDataDAODataDAO.findById1();
+            logger.info("查询管理员数据成功");
         } catch (SQLException e) {
             logger.warning("查询管理员数据失败" + e);
         }

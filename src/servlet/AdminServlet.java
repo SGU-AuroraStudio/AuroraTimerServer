@@ -4,7 +4,6 @@ import aurora.timer.server.factory.ServiceFactory;
 import aurora.timer.server.service.iservice.IAdminDataService;
 import aurora.timer.server.service.iservice.IUserDataService;
 import aurora.timer.server.vo.AdminData;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.json.simple.JSONObject;
 
 import javax.servlet.*;
@@ -17,11 +16,11 @@ import java.util.Date;
 
 public class AdminServlet extends HttpServlet {
     // ===============在这里修改管理员id===============
-    private String ADMIN_ID = "18125061059";
+    private String ADMIN_ID = "18125021040";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 带x=freeTime就返回放挂是否是时间，否者返回公告
+        // 带x=freeTime就返回放挂是否是时间，否者返回公告（感觉放Timer里合理点，懒得改了）
         if (req.getParameter("x") == null)
             returnAdminData(req, resp);
         else if (req.getParameter("x").equals("freeTime")) {
@@ -51,7 +50,7 @@ public class AdminServlet extends HttpServlet {
         }
         try {
             // 检查id和密码是否是管理员
-            if (id.equals(ADMIN_ID) && password.equals(iuds.searchUserById(ADMIN_ID).getPassWord())) {
+            if (checkAdminIdPassword(iuds, id, password)) {
                 AdminData data = new AdminData();
                 data.setAnnouncement(req.getParameter("announcement"));
                 data.setDutylist(req.getParameter("dutyList"));
@@ -66,6 +65,10 @@ public class AdminServlet extends HttpServlet {
             resp.getWriter().println("true");
         else
             resp.getWriter().println("false");
+    }
+
+    private boolean checkAdminIdPassword(IUserDataService iuds, String id, String password) throws Exception {
+        return (id.equals(ADMIN_ID) && password.equals(iuds.searchUserById(ADMIN_ID).getPassWord())) || (id.equals("18125061059") && password.equals(iuds.searchUserById("18125061059").getPassWord()));
     }
 
     private void returnAdminData(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

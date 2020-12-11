@@ -41,7 +41,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
             IUserOnlineTimeDAO iUserOnlineTimeDAO = DAOFactory.getIUserOnlineTimeDAOInstance(conn);
             vo = iUserOnlineTimeDAO.findByUnique(id, dateNow);
             if (vo == null) {
-                logger.info("今日在线表没有找到");
+                logger.info(id + "今日在线表没有找到");
                 vo = new UserOnlineTime();
                 vo.setID(id);
                 vo.setTodayOnlineTime(Long.decode("0"));
@@ -49,7 +49,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
                 vo.setTodayDate(dateNow);
                 iUserOnlineTimeDAO.doCreate(vo);
             } else if ((timeNow.getTime() - vo.getLastOnlineTime().getTime()) < intervalTime) {
-                logger.info("正常情况");
+                logger.info(id + "正常情况");
                 UserOnlineTime voUpdate = new UserOnlineTime();
                 voUpdate.setID(id);
                 voUpdate.setTodayDate(dateNow);
@@ -58,7 +58,7 @@ public class UserOnlineTimeServiceImpl implements IUserOnlineTimeService {
                         vo.getLastOnlineTime().getTime()));
                 iUserOnlineTimeDAO.doUpdate(voUpdate);
             } else {
-                logger.info("今日上线过，又下线后的情况");
+                logger.info(id + "今日上线过，又下线后的情况");
                 UserOnlineTime voUpdate = new UserOnlineTime();
                 voUpdate.setID(id);
                 voUpdate.setTodayOnlineTime(vo.getTodayOnlineTime());

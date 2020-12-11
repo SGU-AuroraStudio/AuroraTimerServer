@@ -19,10 +19,13 @@ public class DBConnection {
     static final String ADDRESS = "localhost";
     static final String PORT = "3306";
     static final String DBNAME = "timer";
-    //    static final String USER = "root"; //root
+    //我到笔记本参数
+//    static final String USER = "root"; //root
 //    static final String PASSWORD = "root"; //Zhouhao6371.
 //    static final String URL = "jdbc:mysql://" + ADDRESS + ":" + PORT + "/" + DBNAME + "?" +
 //            "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai"; //MySql 8 要加serverTimezone
+
+    //服务器参数
     static final String USER = "hao";
     static final String PASSWORD = "797987";
     static final String URL = "jdbc:mysql://" + ADDRESS + ":" + PORT + "/" + DBNAME + "?" +

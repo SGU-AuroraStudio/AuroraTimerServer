@@ -4,8 +4,6 @@ import aurora.timer.server.dao.idao.IAdminDataDAO;
 import aurora.timer.server.vo.AdminData;
 
 import java.sql.*;
-import java.util.HashSet;
-import java.util.Set;
 
 public class AdminDataDAOImpl implements IAdminDataDAO {
     private PreparedStatement pstmt;
@@ -17,7 +15,7 @@ public class AdminDataDAOImpl implements IAdminDataDAO {
 
     @Override
     public boolean doUpdate(AdminData vo) throws SQLException {
-        String sql = "UPDATE AdminData SET announcement=?,dutylist=?,freeTimeStart=?," +
+        String sql = "UPDATE AdminData SET announcement=?,dutyList=?,freeTimeStart=?," +
                 "freeTimeEnd=? WHERE id=1";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, vo.getAnnouncement());
