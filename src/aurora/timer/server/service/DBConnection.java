@@ -19,17 +19,21 @@ public class DBConnection {
     static final String ADDRESS = "localhost";
     static final String PORT = "3306";
     static final String DBNAME = "timer";
-    //我到笔记本参数
+//    //我到笔记本参数
 //    static final String USER = "root"; //root
 //    static final String PASSWORD = "root"; //Zhouhao6371.
 //    static final String URL = "jdbc:mysql://" + ADDRESS + ":" + PORT + "/" + DBNAME + "?" +
 //            "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai"; //MySql 8 要加serverTimezone
-
-    //服务器参数
-    static final String USER = "hao";
-    static final String PASSWORD = "797987";
+    //我的MAC参数
+    static final String USER = "root";
+    static final String PASSWORD = "@123";
     static final String URL = "jdbc:mysql://" + ADDRESS + ":" + PORT + "/" + DBNAME + "?" +
-            "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&amp;&characterEncoding=utf8&useSSL=false"; //MySql 5.
+            "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&amp&characterEncoding=utf8&useSSL=false"; //MySql 5.
+//    //服务器参数
+//    static final String USER = "hao";
+//    static final String PASSWORD = "797987";
+//    static final String URL = "jdbc:mysql://" + ADDRESS + ":" + PORT + "/" + DBNAME + "?" +
+//            "user=" + USER + "&password=" + PASSWORD + "&useUnicode=yes&amp&characterEncoding=utf8&useSSL=false"; //MySql 5.
 
 
     /**
@@ -49,9 +53,9 @@ public class DBConnection {
         }
         return conn;
     }
-//// 连接测试
-//   public static void main(String args[]) throws SQLException{
-//        Connection c = new DBConnection().getConnection();
-//        c.close();
-//    }
+// 连接测试
+   public static void main(String args[]) throws SQLException{
+        Connection c = new DBConnection().getConnection();
+        c.close();
+    }
 }
