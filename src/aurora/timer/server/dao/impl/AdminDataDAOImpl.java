@@ -34,8 +34,8 @@ public class AdminDataDAOImpl implements IAdminDataDAO {
         if(rs.next()){
             vo.setAnnouncement(rs.getString(1));
             vo.setDutylist(rs.getString(2));
-            vo.setFreeTimeStart(rs.getTime(3));
-            vo.setFreeTimeEnd(rs.getTime(4));
+            vo.setFreeTimeStart(Time.valueOf(rs.getString(3)));
+            vo.setFreeTimeEnd(Time.valueOf(rs.getString(4)));
         }
         return vo;
     }

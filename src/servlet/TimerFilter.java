@@ -32,7 +32,7 @@ public class TimerFilter implements Filter {
         if (!flag) {
             ServletContext servletContext = servletRequest.getServletContext();
             servletContext.log(servletRequest.getRemoteAddr() + "请求计时失败");
-            servletResponse.getWriter().println("请在工作室计时。（出bug了，先检查工作室ip有没有变。\n如果您已经在工作室，请联系管理员。\n）");
+            servletResponse.getWriter().println("请在工作室计时。\n（也可能是bug，先检查工作室ip有没有变。如果您已经在工作室，请联系管理员）");
         }
     }
 

@@ -6,6 +6,7 @@ import aurora.timer.server.service.iservice.IUserOnlineTimeService;
 import aurora.timer.server.vo.UserData;
 import aurora.timer.server.vo.UserOnlineTime;
 import org.json.simple.JSONObject;
+import servlet.until.AdminId;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,11 +35,10 @@ public class FindByIdServlet extends HttpServlet {
             JSONObject object = new JSONObject();
             if (data != null) {
                 object.put("id", data.getID());
-                if(data.getID().equals("18125061059")||data.getID().equals("123123")){
-                    object.put("isAdmin","true");
-                }
-                else{
-                    object.put("isAdmin","false");
+                for(String aId: AdminId.adminId) {
+                    object.put("isAdmin", String.valueOf(data.getID().equals(aId)));
+                    if(data.getID().equals(aId))
+                        break;
                 }
                 object.put("name", data.getNickName());
                 object.put("tel", data.getTelNumber());

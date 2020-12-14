@@ -5,6 +5,7 @@ import aurora.timer.server.service.iservice.IAdminDataService;
 import aurora.timer.server.service.iservice.IUserDataService;
 import aurora.timer.server.vo.AdminData;
 import org.json.simple.JSONObject;
+import servlet.until.AdminId;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -15,9 +16,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class AdminServlet extends HttpServlet {
-    // ===============在这里修改管理员id===============
-    private String ADMIN_ID = "18125021040";
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 带x=freeTime就返回放挂是否是时间，否者返回公告（感觉放Timer里合理点，懒得改了）
@@ -68,7 +66,9 @@ public class AdminServlet extends HttpServlet {
     }
 
     private boolean checkAdminIdPassword(IUserDataService iuds, String id, String password) throws Exception {
-        return (id.equals(ADMIN_ID) && password.equals(iuds.searchUserById(ADMIN_ID).getPassWord())) || (id.equals("18125061059") && password.equals(iuds.searchUserById("18125061059").getPassWord()));
+        for(String aId: AdminId.adminId)
+            return id.equals(aId) && password.equals(iuds.searchUserById(aId).getPassWord());
+        return false;
     }
 
     private void returnAdminData(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -97,6 +97,7 @@ public class AdminServlet extends HttpServlet {
             AdminData adminData = iads.getAdminData();
             // 系统时间和 数据库存的 设置的时间对比
             Time time = new Time(System.currentTimeMillis());
+//            long systemCurrentTimeLong = new Time(time.getHours(), time.getMinutes(), time.getSeconds()).getTime();
             long systemCurrentTimeLong = new Time(time.getHours(), time.getMinutes(), time.getSeconds()).getTime();
             return systemCurrentTimeLong > adminData.getFreeTimeStart().getTime() && systemCurrentTimeLong < adminData.getFreeTimeEnd().getTime() + 1200000; //向后移20分钟，防止在例如17：01分的时候返回true
         } catch (Exception e) {
