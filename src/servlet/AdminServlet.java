@@ -15,6 +15,9 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+/**
+ * Created by Yao on 20-12-14.
+ */
 public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -66,8 +69,10 @@ public class AdminServlet extends HttpServlet {
     }
 
     private boolean checkAdminIdPassword(IUserDataService iuds, String id, String password) throws Exception {
-        for(String aId: AdminId.adminId)
-            return id.equals(aId) && password.equals(iuds.searchUserById(aId).getPassWord());
+        for (String aId : AdminId.adminId) {
+            if (id.equals(aId) && password.equals(iuds.searchUserById(aId).getPassWord()))
+                return true;
+        }
         return false;
     }
 
