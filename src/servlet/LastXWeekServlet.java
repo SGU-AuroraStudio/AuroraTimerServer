@@ -33,16 +33,19 @@ public class LastXWeekServlet extends HttpServlet {
         //---------------------准备工作--------------------
         Date nowDate = new Date(System.currentTimeMillis()); //系统的Date
 
-        Date termStart = null;
+        Date termStart = null; // 开学日期，用于计算学期总计时
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
-        String year = sdf.format(nowDate); //系统年份，获取到的是+1900的
-        Date termStart1 = new Date(Integer.valueOf(year)-1900,8,1); //月份要-1，传入8，获得的是9月份
-        Date termStart2 = new Date(Integer.valueOf(year)-1900,1,1);
-        if(nowDate.after(termStart1) || nowDate.before(termStart2)){ // 9月份之后，或者，2月份之前，肯定是第一学期
-            termStart=termStart1;
+        String year = sdf.format(nowDate); //系统当前年份，获取到的是+1900的
+        // 第一学期的开学日期
+        if(nowDate.getMonth()>9){ // 9月份之后-12月，为当前年份，比如2020-09是第一学期
+            termStart=new Date(Integer.valueOf(year)-1900,8,1); //月份要-1，传入8，获得的是9月份 第一学期时间，
         }
+        else if(nowDate.getMonth()<2){ // 2月份之前，是前一年开学的，比如2021-01开学时间是2020-09
+            termStart=new Date(Integer.valueOf(year)-1901,8,1);
+        }
+        // 第二学期好办，都在同一年，即当前年份
         else{
-            termStart=termStart2;
+            termStart=new Date(Integer.valueOf(year)-1900,1,1);
         }
         //--------------------准备工作结束--------------------
 
@@ -75,7 +78,6 @@ public class LastXWeekServlet extends HttpServlet {
                 temp.put("id", s);
                 temp.put("time", map.get(s).toString());
                 temp.put("name", iuds.searchUserById(s).getNickName());
-
                 object.put(s, temp);
             }
 
